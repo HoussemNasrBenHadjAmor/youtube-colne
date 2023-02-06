@@ -6,12 +6,12 @@ import HoverVideoPlayer from "react-hover-video-player";
 const VideoCard = ({ video }) => {
   TimeAgo.addLocale(en);
   const timeAgo = new TimeAgo("en-US");
-  const { id, snippet } = video;
+  const { id, snippet, thumbnails } = video;
   const LinkTo = ({ children, link }) => <Link to={link}>{children}</Link>;
 
   return (
     <LinkTo link={`/watch?v=${id?.videoId}`}>
-      <HoverVideoPlayer
+      {/* <HoverVideoPlayer
         videoSrc={`https://youtu.be/${id?.videoId}.mp4`}
         pausedOverlay={
           <img
@@ -30,13 +30,14 @@ const VideoCard = ({ video }) => {
             <div className="loading-spinner" />
           </div>
         }
-      />
+      /> */}
 
-      {/* <img
-        src={snippet?.thumbnails?.medium?.url}
+      <img
+        src={thumbnails?.medium?.url}
+        // src={snippet?.thumbnails?.medium?.url}
         alt="cover-video"
         className="rounded-lg w-full"
-      /> */}
+      />
 
       <div className="pr-3 mt-2">
         <p className="truncate text-white font-semibold text-xs sm:text-sm">

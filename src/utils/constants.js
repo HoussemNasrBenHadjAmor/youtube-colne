@@ -18,4 +18,4 @@ export const categories = [
   },
 ];
 
-export { default as logo } from "../../public/logo.png";
+export { default as logo } from "../assets/logo.png";
