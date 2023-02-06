@@ -9,10 +9,10 @@ const Watch = () => {
 
   return (
     <div className="flex justify-center items-center">
-      <div>
-        <VideoPlayer id={id} />
+      <div className="flex-1 bg-slate-300">
+        <VideoPlayer id={id} className="" />
       </div>
-      <div className="flex 1">
+      <div className="">
         <Suggestions />
       </div>
     </div>
