@@ -23,7 +23,6 @@ export const getRelatedVideo = async (id) => {
 
     return data;
   } catch (error) {
-    console.log(error);
     return error;
   }
 };

@@ -66,3 +66,58 @@ export const channelCard = {
 
   title: "JavaScript Mastery",
 };
+
+export const suggestedVideo = {
+  etag: "9SGk4sUWPqudknvhbr3tMqPrguE",
+
+  id: {
+    kind: "youtube#video",
+    videoId: "EyIvuigqDoA",
+  },
+
+  kind: "youtube#searchResult",
+
+  snippet: {
+    channelId: "UCmXmlB4-HJytD7wek0Uo97A",
+    channelTitle: "JavaScript Mastery",
+    description:
+      "Learn advanced React best practices, State Management using Redux Toolkit, UI Creation using Ant Design, creating charts ...",
+    liveBroadcastContent: "none",
+    publishTime: "2021-09-18T15:54:52Z",
+    publishedAt: "2021-09-18T15:54:52Z",
+  },
+  publishTime: "2023-01-20T09:59:30Z",
+  publishedAt: "2023-01-20T09:59:30Z",
+
+  thumbnails: {
+    default: {
+      url: "https://i.ytimg.com/vi/EyIvuigqDoA/default.jpg",
+      width: 120,
+      height: 90,
+    },
+    high: {
+      url: "https://i.ytimg.com/vi/EyIvuigqDoA/hqdefault.jpg",
+      width: 480,
+      height: 360,
+    },
+    maxres: {
+      height: 720,
+      url: "https://i.ytimg.com/vi/EyIvuigqDoA/maxresdefault.jpg",
+      width: 1280,
+    },
+    medium: {
+      height: 180,
+      url: "https://i.ytimg.com/vi/EyIvuigqDoA/mqdefault.jpg",
+      width: 320,
+    },
+
+    standard: {
+      height: 480,
+      url: "https://i.ytimg.com/vi/EyIvuigqDoA/sddefault.jpg",
+      width: 640,
+    },
+  },
+
+  title:
+    "Build and Deploy a Full Stack MERN AI Image Generation App | Midjourney & DALL-E Clone",
+};

@@ -3,10 +3,10 @@ import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en";
 import HoverVideoPlayer from "react-hover-video-player";
 
-const VideoCard = ({ video }) => {
+const VideoCard = ({ video, isSuggest }) => {
   TimeAgo.addLocale(en);
   const timeAgo = new TimeAgo("en-US");
-  const { id, snippet, thumbnails } = video;
+  const { id, snippet, thumbnails, title } = video;
   const LinkTo = ({ children, link }) => <Link to={link}>{children}</Link>;
 
   return (
@@ -41,7 +41,7 @@ const VideoCard = ({ video }) => {
 
       <div className="pr-3 mt-2">
         <p className="truncate text-white font-semibold text-xs sm:text-sm">
-          {snippet?.description}
+          {`${isSuggest ? title : snippet?.description}`}
         </p>
 
         <div className="mt-1">
