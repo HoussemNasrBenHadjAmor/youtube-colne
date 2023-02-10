@@ -10,21 +10,22 @@ const Body = () => {
 
   let newArray = channelCardArray.concat(videoCardArray);
 
-  console.log("new Array", newArray);
+  // console.log("new Array", newArray);
 
   const [results, setResults] = useState([]);
   const { pathname } = useLocation();
   const query = pathname.slice(10).length ? pathname.slice(10) : "new";
-  console.log("new results", results);
+  // console.log("new results", results);
   useEffect(() => {
-    // fetchSearch("javascript mastery").then(({ items }) => setResults(items));
+    fetchSearch(pathname).then(({ items }) => setResults(items));
   }, [query]);
 
   return (
     <div>
       <div>
         <Videos
-          videos={newArray}
+          // videos={newArray}
+          videos={results}
           // videos={newArray}
         />
       </div>

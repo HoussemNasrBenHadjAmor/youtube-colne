@@ -15,7 +15,7 @@ const Watch = () => {
 
   const [relatedVideos, setRelatedVideos] = useState([]);
 
-  const suggestedVideos = new Array(50).fill(suggestedVideo);
+  const suggestedVideos = new Array(15).fill(suggestedVideo);
 
   useEffect(() => {
     getRelatedVideo(id).then(({ items }) => setRelatedVideos(items));

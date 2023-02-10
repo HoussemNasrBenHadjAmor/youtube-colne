@@ -18,7 +18,7 @@ export const fetchSearch = async (search) => {
 export const getRelatedVideo = async (id) => {
   try {
     const { data } = await axios.get(
-      `${url}search?part=snippet&relatedToVideoId=${id}&key=${apiKey}&type=video&maxResults=50`
+      `${url}search?part=snippet&relatedToVideoId=${id}&key=${apiKey}&type=video&maxResults=15`
     );
 
     return data;
