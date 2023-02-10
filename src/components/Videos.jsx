@@ -11,7 +11,7 @@ const Videos = ({ videos, isSuggest }) => {
     >
       {videos?.map((video) => (
         <div key={`${video?.id?.videoId || video?.id?.channelId}`}>
-          {video?.id?.videoId && <VideoCard video={video} isSuggest />}
+          {video?.id?.videoId && <VideoCard video={video} />}
           {video?.id?.channelId && <ChannelCard video={video} />}
         </div>
       ))}
