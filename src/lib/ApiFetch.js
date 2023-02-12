@@ -26,3 +26,15 @@ export const getRelatedVideo = async (id) => {
     return error;
   }
 };
+
+export const getVideoDetails = async (id) => {
+  try {
+    const { data } = await axios.get(
+      `${url}videos?part=snippet,statistics&id=${id}&maxResults=15&key=${apiKey}`
+    );
+
+    return data;
+  } catch (error) {
+    return error;
+  }
+};

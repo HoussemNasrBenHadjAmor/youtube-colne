@@ -15,17 +15,17 @@ const Body = () => {
   const [results, setResults] = useState([]);
   const { pathname } = useLocation();
   const query = pathname.slice(10).length ? pathname.slice(10) : "new";
-  // console.log("new results", results);
   useEffect(() => {
-    fetchSearch(pathname).then(({ items }) => setResults(items));
+    // fetchSearch(pathname).then(({ items }) => setResults(items));
   }, [query]);
 
+  // console.log("new results", results);
   return (
     <div>
       <div>
         <Videos
-          // videos={newArray}
-          videos={results}
+          videos={newArray}
+          // videos={results}
           // videos={newArray}
         />
       </div>

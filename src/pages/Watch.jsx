@@ -4,9 +4,9 @@ import { useLocation } from "react-router-dom";
 
 import { VideoPlayer, Suggestions, Videos } from "../components";
 
-import { getRelatedVideo } from "../lib/ApiFetch";
+import { getRelatedVideo, getVideoDetails } from "../lib/ApiFetch";
 
-import { suggestedVideo } from "../utils/Variables";
+import { suggestedVideo, videoDetails } from "../utils/Variables";
 
 const Watch = () => {
   const { search } = useLocation();
@@ -15,19 +15,24 @@ const Watch = () => {
 
   const [relatedVideos, setRelatedVideos] = useState([]);
 
+  const [videoDetail, setVideoDetail] = useState(null);
+
   const suggestedVideos = new Array(15).fill(suggestedVideo);
 
   useEffect(() => {
-    getRelatedVideo(id).then(({ items }) => setRelatedVideos(items));
+    // getRelatedVideo(id).then(({ items }) => setRelatedVideos(items));
+    // getVideoDetails(id).then(({ items }) => setVideoDetail(items));
   }, [id, search]);
 
+  // console.log("videoDetails from the component", videoDetail);
+
   return (
-    <div className="flex flex-col md:flex-row p-5 gap-10 md:gap-5">
+    <div className="flex flex-col md:flex-row p-5 gap-7">
       <div className="md:w-[65%] w-full">
-        <VideoPlayer id={id} />
+        <VideoPlayer id={id} videoDetails={videoDetails} />
       </div>
       <div className="md:w-[35%] w-full">
-        <Suggestions videos={relatedVideos} />
+        <Suggestions videos={suggestedVideos} />
       </div>
     </div>
   );
