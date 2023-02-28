@@ -12,7 +12,7 @@ const Navbar = ({ isDark }) => {
   const { hideShow } = useStateContext();
 
   return (
-    <div className="flex flex-row items-center justify-between p-3 px-5">
+    <div className="flex items-center justify-between p-3 px-5">
       <div className="flex justify-center gap-4 items-center">
         <button onClick={hideShow} className="hidden md:flex">
           <Bars3Icon className="w-6 h-6" />
