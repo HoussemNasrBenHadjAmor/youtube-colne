@@ -28,7 +28,7 @@ const Navbar = ({ isDark }) => {
           placeholder="Search..."
           className="bg-transparent outline-none w-full"
         />
-        {/* <MagnifyingGlassIcon className="w-6 cursor-pointer" /> */}
+        <MagnifyingGlassIcon className="w-6 h-6 cursor-pointer" />
       </div>
 
       <div className="flex gap-5 items-center">
