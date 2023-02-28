@@ -12,7 +12,7 @@ const Navbar = ({ isDark }) => {
   const { hideShow } = useStateContext();
 
   return (
-    <div className="flex flex-row items-center justify-between p-3 px-5">
+    <div className="flex flex-row items-center justify-between p-3 bg-slate-300 px-5">
       <div className="flex flex-row gap-4 items-center">
         <button onClick={hideShow} className="hidden md:flex">
           <Bars3Icon className="w-6" />
@@ -22,7 +22,7 @@ const Navbar = ({ isDark }) => {
         </Link>
       </div>
 
-      <div className="gap-2 bg-[#212121] rounded-lg p-1 px-3 hidden md:flex w-full md:max-w-lg md:mx-auto">
+      <div className="gap-2 bg-[#212121] rounded-lg p-1 px-3 hidden md:flex w-full md:max-w-lg">
         <input
           type="text"
           placeholder="Search..."
