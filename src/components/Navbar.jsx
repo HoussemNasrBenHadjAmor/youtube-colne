@@ -13,12 +13,12 @@ const Navbar = ({ isDark }) => {
 
   return (
     <div className="flex flex-row items-center justify-between p-3 px-5">
-      <div className="flex flex-row gap-4 items-center">
+      <div className="flex justify-center gap-4 items-center">
         <button onClick={hideShow} className="hidden md:flex">
-          <Bars3Icon className="w-6" />
+          <Bars3Icon className="w-6 h-6" />
         </button>
         <Link to="/">
-          <img src={logo} alt="you-logo" className="w-10" />
+          <img src={logo} alt="you-logo" className="w-10 h-10" />
         </Link>
       </div>
 
