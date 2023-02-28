@@ -1,4 +1,5 @@
 export { default as Sidebar } from "./Sidebar";
+export { default as SideBarMobile } from "./SideBarMobile";
 export { default as Navbar } from "./Navbar";
 export { default as Suggestions } from "./Suggestions";
 export { default as Suggestion } from "./Suggestion";

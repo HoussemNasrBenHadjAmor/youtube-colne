@@ -1,10 +1,10 @@
 import { categories } from "../utils/constants";
 import { NavItem } from "./";
 
-const Sidebar = () => {
+const SideBarMobile = () => {
   return (
-    <div>
-      <div className="hidden md:flex md:flex-col md:gap-2 md:h-screen">
+    <div className="md:hidden flex justify-center items-center overflow-scroll flex-nowrap max-w-sm">
+      <div className="md:hidden w-full flex py-4">
         {categories.map(({ name, Icon, path }) => (
           <NavItem name={name} Icon={Icon} path={path} key={path} />
         ))}
@@ -13,4 +13,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default SideBarMobile;

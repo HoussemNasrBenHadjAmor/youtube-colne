@@ -14,7 +14,7 @@ const Navbar = ({ isDark }) => {
   return (
     <div className="flex flex-row items-center justify-between p-3 px-5">
       <div className="flex flex-row gap-4 items-center">
-        <button onClick={() => hideShow()} className="hidden md:flex">
+        <button onClick={hideShow} className="hidden md:flex">
           <Bars3Icon className="w-6" />
         </button>
         <Link to="/">
@@ -41,10 +41,6 @@ const Navbar = ({ isDark }) => {
           ) : (
             <MoonIcon className="md:w-6 w-5" />
           )}
-        </button>
-
-        <button onClick={() => hideShow()} className="md:hidden">
-          <Bars3Icon className="w-5" />
         </button>
       </div>
     </div>

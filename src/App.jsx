@@ -1,4 +1,4 @@
-import { Sidebar, Navbar, ErrorPage } from "./components";
+import { Sidebar, Navbar, ErrorPage, SideBarMobile } from "./components";
 import { Body, Watch } from "./pages";
 import { useStateContext } from "./context/StateContextProvider";
 import { Routes, Route } from "react-router-dom";
@@ -13,11 +13,14 @@ const App = () => {
       </div>
 
       <div className="flex flex-row my-5">
-        <div className={`${!open ? "hidden" : "flex"}`}>
+        <div className={`flex flex-row md:my-5 ${!open ? "hidden" : "flex"}`}>
           <Sidebar />
         </div>
 
         <div className="flex-1">
+          <div className="md:hidden flex">
+            <SideBarMobile />
+          </div>
           <Routes>
             <Route path="/" element={<Body />} />
             <Route path="/category/:id" element={<Body />} />
