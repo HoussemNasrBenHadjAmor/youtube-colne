@@ -22,13 +22,13 @@ const Navbar = ({ isDark }) => {
         </Link>
       </div>
 
-      <div className="gap-2 bg-[#212121] rounded-lg p-1 px-3 hidden md:flex w-full">
+      <div className="gap-2 bg-[#212121] rounded-lg p-1 px-3 hidden md:flex w-full md:max-w-lg">
         <input
           type="text"
           placeholder="Search..."
           className="bg-transparent outline-none w-full"
         />
-        <MagnifyingGlassIcon className="w-6 cursor-pointer" />
+        {/* <MagnifyingGlassIcon className="w-6 cursor-pointer" /> */}
       </div>
 
       <div className="flex gap-5 items-center">
