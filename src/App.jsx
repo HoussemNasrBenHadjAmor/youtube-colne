@@ -8,11 +8,11 @@ const App = () => {
 
   return (
     <div>
-      <div>
+      <div className="">
         <Navbar />
       </div>
 
-      <div className="flex flex-row my-5">
+      <div className="flex flex-col md:flex-row my-5">
         <div className={`flex flex-row md:my-5 ${!open ? "hidden" : "flex"}`}>
           <Sidebar />
         </div>
