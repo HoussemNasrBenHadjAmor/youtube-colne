@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import App from "./App";
-import { Watch } from "./pages";
+import { Watch, Profile } from "./pages";
 import { ErrorPage } from "./components";
 import { StateContextProvider } from "./context/StateContextProvider";
 
@@ -20,6 +20,11 @@ const router = createBrowserRouter([
       {
         path: "category/:id",
         element: <App />,
+      },
+
+      {
+        path: "channel/:id",
+        element: <Profile />,
       },
 
       {

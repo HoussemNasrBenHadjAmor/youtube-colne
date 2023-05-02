@@ -16,8 +16,12 @@ const ChannelCard = ({ video }) => {
         />
 
         <div className="pr-3 mt-5">
-          <LinkTo link={`/@${snippet?.channelTitle}`}>
-            <p className="text-gray-400 text-xs hover:text-white duration-300 ease-in-out">
+          <LinkTo
+            link={`/@${snippet?.channelTitle
+              ?.replace(/\s/g, "")
+              ?.toLowerCase()}`}
+          >
+            <p className="text-gray-400 text-sm hover:text-white duration-300 ease-in-out">
               {snippet?.channelTitle}
             </p>
           </LinkTo>

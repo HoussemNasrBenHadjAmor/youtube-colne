@@ -38,3 +38,31 @@ export const getVideoDetails = async (id) => {
     return error;
   }
 };
+
+export const getChannelDetailsBySearch = async (term) => {
+  try {
+    const { data } = await axios.get(
+      `${url}search?key=${apiKey}&part=snippet&q=${term}&maxResults=50&type=channel`
+    );
+    return data;
+  } catch (error) {
+    console.log("error", error);
+    return error;
+  }
+};
+
+export const getChannelDetails = async (term) => {
+  try {
+    const response = await axios.get(
+      `${url}channel?forUsername=${term}&part=snippet&key=${apiKey}`
+    );
+
+    console.log("taadet");
+
+    console.log("data channel ", response);
+    return data;
+  } catch (error) {
+    console.log("error", error);
+    return error;
+  }
+};

@@ -45,7 +45,11 @@ const VideoCard = ({ video }) => {
         </p>
 
         <div className="mt-1">
-          <LinkTo link={`/@${snippet?.channelTitle}`}>
+          <LinkTo
+            link={`/@${snippet?.channelTitle
+              ?.replace(/\s/g, "")
+              ?.toLowerCase()}`}
+          >
             <p className="text-gray-400 text-xs hover:text-white duration-300 ease-in-out">
               {snippet?.channelTitle}
             </p>

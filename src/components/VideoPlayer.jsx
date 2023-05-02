@@ -8,9 +8,6 @@ const VideoPlayer = ({ id, videoDetails }) => {
   const { channelTitle, description, localized, publishedAt, title } = snippet;
   const urlTitle = channelTitle?.replace(/\s/g, "").toLowerCase();
 
-  console.log(snippet);
-  console.log(statistics);
-
   return (
     <div className="flex flex-col gap-5">
       <div>
