@@ -6,7 +6,7 @@ const ChannelCard = ({ video }) => {
   const LinkTo = ({ children, link }) => <Link to={link}>{children}</Link>;
 
   return (
-    <LinkTo link={`/@${urlTitle}`}>
+    <LinkTo link={`/channel/${snippet?.channelId}`}>
       <div className="flex flex-col justify-center items-center">
         <img
           src={thumbnails?.medium?.url}

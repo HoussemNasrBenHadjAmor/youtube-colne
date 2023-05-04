@@ -9,12 +9,16 @@ const Profile = () => {
   const idChannel = useParams()?.id?.slice(1);
 
   const getChannel = async () => {
-    const data = await getChannelDetailsBySearch(idChannel);
+    const data = await getChannelDetails(idChannel);
 
     setChannel(data);
   };
 
   useEffect(() => {
+    // getChannelDetails().then((data) =>
+    //   console.log("channel from profile ", data)
+    // );
+
     getChannel();
   }, []);
 

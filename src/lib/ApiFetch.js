@@ -46,23 +46,18 @@ export const getChannelDetailsBySearch = async (term) => {
     );
     return data;
   } catch (error) {
-    console.log("error", error);
     return error;
   }
 };
 
-export const getChannelDetails = async (term) => {
+export const getChannelDetails = async (id) => {
   try {
-    const response = await axios.get(
-      `${url}channel?forUsername=${term}&part=snippet&key=${apiKey}`
+    const { data } = await axios.get(
+      `${url}channels?part=snippet,contentDetails,statistics&id=${id}&maxResults=1&key=${apiKey}`
     );
 
-    console.log("taadet");
-
-    console.log("data channel ", response);
     return data;
   } catch (error) {
-    console.log("error", error);
     return error;
   }
 };
