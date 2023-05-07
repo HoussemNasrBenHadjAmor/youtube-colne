@@ -61,3 +61,29 @@ export const getChannelDetails = async (id) => {
     return error;
   }
 };
+
+export const getChannelPlaylist = async (id) => {
+  try {
+    const response = await axios.get(
+      `${url}playlists?part=snippet,contentDetails&channelId=${id}&maxResults=50&key=${apiKey}`
+    );
+
+    console.log("response", response);
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const getChannelVideos = async (id) => {
+  try {
+    const response = await axios.get(
+      `${url}search?part=snippet&channelId=${id}&maxResults=50&order=date&key=${apiKey}`
+    );
+    console.log("videos", response);
+    return response;
+  } catch (error) {
+    return error;
+  }
+};

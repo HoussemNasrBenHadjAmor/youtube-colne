@@ -288,3 +288,57 @@ Time Stamps 👇
     viewCount: "429758",
   },
 };
+
+export const channelDetails = {
+  contentDetails: {
+    relatedPlaylists: {
+      likes: "",
+      uploads: "UUmXmlB4-HJytD7wek0Uo97A",
+    },
+  },
+
+  etag: "TQt7ccg5yNUObXxgfN189_K8Ggc",
+
+  id: "UCmXmlB4-HJytD7wek0Uo97A",
+
+  kind: "youtube#channel",
+
+  snippet: {
+    country: "HR",
+    customUrl: "@javascriptmastery",
+    description:
+      "Launch your development career with project-based coaching - showcase your skills with practical development experience and land the coding career of your dreams. Check out jsmastery.pro to learn more.",
+    localized: {
+      description:
+        "Launch your development career with project-based coaching - showcase your skills with practical development experience and land the coding career of your dreams. Check out jsmastery.pro to learn more.",
+      title: "JavaScript Mastery",
+    },
+
+    publishedAt: "2018-12-25T10:37:24Z",
+    thumbnails: {
+      default: {
+        height: 88,
+        url: "https://yt3.ggpht.com/wg1TITEoPfxvBGfzuqWyt3bqm_qu35ZhMswUv3feetU3xNX_6wsAXZF40OlPIgY4TmqbqCmAZ1U=s88-c-k-c0x00ffffff-no-rj",
+        width: 88,
+      },
+      high: {
+        height: 800,
+        url: "https://yt3.ggpht.com/wg1TITEoPfxvBGfzuqWyt3bqm_qu35ZhMswUv3feetU3xNX_6wsAXZF40OlPIgY4TmqbqCmAZ1U=s800-c-k-c0x00ffffff-no-rj",
+        width: 800,
+      },
+      medium: {
+        height: 240,
+        url: "https://yt3.ggpht.com/wg1TITEoPfxvBGfzuqWyt3bqm_qu35ZhMswUv3feetU3xNX_6wsAXZF40OlPIgY4TmqbqCmAZ1U=s240-c-k-c0x00ffffff-no-rj",
+        width: 240,
+      },
+    },
+    title: "JavaScript Mastery",
+  },
+
+  statistics: {
+    hiddenSubscriberCount: false,
+    subscriberCount: "595000",
+    videoCount: "99",
+    viewCount: "32463998",
+  },
+};
