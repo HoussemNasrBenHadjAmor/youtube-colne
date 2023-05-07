@@ -53,7 +53,7 @@ export const getChannelDetailsBySearch = async (term) => {
 export const getChannelDetails = async (id) => {
   try {
     const { data } = await axios.get(
-      `${url}channels?part=snippet,contentDetails,statistics&id=${id}&maxResults=1&key=${apiKey}`
+      `${url}channels?part=snippet,contentDetails,statistics,brandingSettings&id=${id}&maxResults=1&key=${apiKey}`
     );
 
     return data;

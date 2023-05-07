@@ -1,5 +1,5 @@
 import { Sidebar, Navbar, ErrorPage, SideBarMobile } from "./components";
-import { Body, Watch, Profile } from "./pages";
+import { Body, Watch, Profile, ProfileAbout } from "./pages";
 import { useStateContext } from "./context/StateContextProvider";
 import { Routes, Route } from "react-router-dom";
 

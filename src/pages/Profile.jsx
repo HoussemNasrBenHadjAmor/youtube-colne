@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+import { Banner } from "../components";
 import {
   getChannelDetails,
   getChannelPlaylist,
   getChannelVideos,
 } from "../lib/ApiFetch";
+import { channelDetails } from "../utils/Variables";
 
 const Profile = () => {
   const [channel, setChannel] = useState(null);
@@ -39,14 +41,18 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    getChannel();
-    ChannelPlaylist();
-    ChannelVideos();
+    // getChannel();
+    // ChannelPlaylist();
+    // ChannelVideos();
   }, [idChannel]);
 
   return (
-    <div>
-      <p>profile</p>
+    <div className="flex flex-col gap-6">
+      <Banner channelDetails={channelDetails} idChannel={idChannel} />
+
+      <div>choosing bar</div>
+
+      <div>videos</div>
     </div>
   );
 };

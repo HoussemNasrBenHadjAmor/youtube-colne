@@ -341,4 +341,11 @@ export const channelDetails = {
     videoCount: "99",
     viewCount: "32463998",
   },
+
+  brandingSettings: {
+    image: {
+      bannerExternalUrl:
+        "https://yt3.googleusercontent.com/kvYtOOlIxxS5m5nZ7d3EVznB86-hmUlCq-0s_TJHt1uS8eehxj-wEV1aU6vQcFtiQoPAqdQ-",
+    },
+  },
 };
