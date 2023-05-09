@@ -10,3 +10,4 @@ export { default as VideoCard } from "./VideoCard";
 export { default as ChannelCard } from "./ChannelCard";
 export { default as VideoPlayer } from "./VideoPlayer";
 export { default as Banner } from "./Banner";
+export { default as NavigateBar } from "./NavigateBar";
