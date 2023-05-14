@@ -25,7 +25,7 @@ const App = () => {
             <Route path="/" element={<Body />} />
             <Route path="/category/:id" element={<Body />} />
             <Route path="/watch" element={<Watch />} />
-            <Route path="/channel/:id" element={<Profile />} />
+            <Route path="/channel/:id/*" element={<Profile />} />
             <Route path="*" element={<ErrorPage />} />
             {/* <Body /> */}
           </Routes>

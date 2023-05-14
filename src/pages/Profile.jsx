@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Routes, Route } from "react-router-dom";
 
-import { Banner, Videos, NavigateBar } from "../components";
 import {
-  getChannelDetails,
-  getChannelPlaylist,
-  getChannelVideos,
-} from "../lib/ApiFetch";
+  Banner,
+  Videos,
+  NavigateBar,
+  PlayLists,
+  About,
+  ErrorPage,
+} from "../components";
+import { getChannelDetails, getChannelVideos } from "../lib/ApiFetch";
 import { channelDetails, videoCard } from "../utils/Variables";
 
 const Profile = () => {
@@ -26,23 +29,10 @@ const Profile = () => {
     />
   );
 
-  const fetchFromApi = async () => {
-    try {
-      //here we're gonna fetch all the three needed api : getChannelDetails, getChannelPlaylist and getChannelVideos and we're gonna do it sync. Meaning just one fetch and that's it.
-    } catch (error) {
-      return error;
-    }
-  };
-
   const getChannel = async () => {
     const data = await getChannelDetails(idChannel);
 
     setChannel(data);
-  };
-
-  const ChannelPlaylist = async () => {
-    const data = await getChannelPlaylist(idChannel);
-    setPlayList(data);
   };
 
   const ChannelVideos = async () => {
@@ -67,9 +57,12 @@ const Profile = () => {
           <NavigateBar id={idChannel} />
         </div>
 
-        <Videos videos={videoCardArray} />
-
-        <div>videos</div>
+        <Routes>
+          <Route path="/" element={<Videos videos={videoCardArray} />} />
+          <Route path="/playlists" element={<PlayLists />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
       </div>
     </div>
   );
