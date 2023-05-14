@@ -12,4 +12,5 @@ export { default as VideoPlayer } from "./VideoPlayer";
 export { default as Banner } from "./Banner";
 export { default as NavigateBar } from "./NavigateBar";
 export { default as PlayLists } from "./PlayLists";
+export { default as PlayList } from "./PlayList";
 export { default as About } from "./About";

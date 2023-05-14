@@ -349,3 +349,231 @@ export const channelDetails = {
     },
   },
 };
+
+export const channelPlaylists = [
+  {
+    contentDetails: {
+      itemsCount: 3,
+    },
+    snippet: {
+      channelId: "UCmXmlB4-HJytD7wek0Uo97A",
+      channelTitle: "JavaScript Mastery",
+      description: "",
+      localized: {
+        description: "",
+        title:
+          "Master Web3, Solidity and Smart Contracts by Building Never-Before-Seen Decentralized Applications",
+      },
+      publishedAt: "2022-09-09T10:28:47Z",
+      thumbnails: {
+        default: {
+          height: 90,
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/default.jpg",
+          width: 120,
+        },
+        high: {
+          height: 360,
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/hqdefault.jpg",
+          width: 480,
+        },
+        maxers: {
+          height: 720,
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/maxresdefault.jpg",
+          width: 1280,
+        },
+        medium: {
+          height: 180,
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/mqdefault.jpg",
+          width: 320,
+        },
+        standard: {
+          height: 480,
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/sddefault.jpg",
+          width: 640,
+        },
+      },
+      title:
+        "Master Web3, Solidity and Smart Contracts by Building Never-Before-Seen Decentralized Applications",
+    },
+  },
+  {
+    contentDetails: {
+      itemsCount: 3,
+    },
+    snippet: {
+      channelId: "UCmXmlB4-HJytD7wek0Uo97A",
+      channelTitle: "JavaScript Mastery",
+      description: "",
+      localized: {
+        description: "",
+        title:
+          "Master Web3, Solidity and Smart Contracts by Building Never-Before-Seen Decentralized Applications",
+      },
+      publishedAt: "2022-09-09T10:28:47Z",
+      thumbnails: {
+        default: {
+          height: 90,
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/default.jpg",
+          width: 120,
+        },
+        high: {
+          height: 360,
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/hqdefault.jpg",
+          width: 480,
+        },
+        maxers: {
+          height: 720,
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/maxresdefault.jpg",
+          width: 1280,
+        },
+        medium: {
+          height: 180,
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/mqdefault.jpg",
+          width: 320,
+        },
+        standard: {
+          height: 480,
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/sddefault.jpg",
+          width: 640,
+        },
+      },
+      title:
+        "Master Web3, Solidity and Smart Contracts by Building Never-Before-Seen Decentralized Applications",
+    },
+  },
+  {
+    contentDetails: {
+      itemsCount: 3,
+    },
+    snippet: {
+      channelId: "UCmXmlB4-HJytD7wek0Uo97A",
+      channelTitle: "JavaScript Mastery",
+      description: "",
+      localized: {
+        description: "",
+        title:
+          "Master Web3, Solidity and Smart Contracts by Building Never-Before-Seen Decentralized Applications",
+      },
+      publishedAt: "2022-09-09T10:28:47Z",
+      thumbnails: {
+        default: {
+          height: 90,
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/default.jpg",
+          width: 120,
+        },
+        high: {
+          height: 360,
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/hqdefault.jpg",
+          width: 480,
+        },
+        maxers: {
+          height: 720,
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/maxresdefault.jpg",
+          width: 1280,
+        },
+        medium: {
+          height: 180,
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/mqdefault.jpg",
+          width: 320,
+        },
+        standard: {
+          height: 480,
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/sddefault.jpg",
+          width: 640,
+        },
+      },
+      title:
+        "Master Web3, Solidity and Smart Contracts by Building Never-Before-Seen Decentralized Applications",
+    },
+  },
+  {
+    contentDetails: {
+      itemsCount: 3,
+    },
+    snippet: {
+      channelId: "UCmXmlB4-HJytD7wek0Uo97A",
+      channelTitle: "JavaScript Mastery",
+      description: "",
+      localized: {
+        description: "",
+        title:
+          "Master Web3, Solidity and Smart Contracts by Building Never-Before-Seen Decentralized Applications",
+      },
+      publishedAt: "2022-09-09T10:28:47Z",
+      thumbnails: {
+        default: {
+          height: 90,
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/default.jpg",
+          width: 120,
+        },
+        high: {
+          height: 360,
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/hqdefault.jpg",
+          width: 480,
+        },
+        maxers: {
+          height: 720,
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/maxresdefault.jpg",
+          width: 1280,
+        },
+        medium: {
+          height: 180,
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/mqdefault.jpg",
+          width: 320,
+        },
+        standard: {
+          height: 480,
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/sddefault.jpg",
+          width: 640,
+        },
+      },
+      title:
+        "Master Web3, Solidity and Smart Contracts by Building Never-Before-Seen Decentralized Applications",
+    },
+  },
+  {
+    contentDetails: {
+      itemsCount: 3,
+    },
+    snippet: {
+      channelId: "UCmXmlB4-HJytD7wek0Uo97A",
+      channelTitle: "JavaScript Mastery",
+      description: "",
+      localized: {
+        description: "",
+        title:
+          "Master Web3, Solidity and Smart Contracts by Building Never-Before-Seen Decentralized Applications",
+      },
+      publishedAt: "2022-09-09T10:28:47Z",
+      thumbnails: {
+        default: {
+          height: 90,
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/default.jpg",
+          width: 120,
+        },
+        high: {
+          height: 360,
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/hqdefault.jpg",
+          width: 480,
+        },
+        maxers: {
+          height: 720,
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/maxresdefault.jpg",
+          width: 1280,
+        },
+        medium: {
+          height: 180,
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/mqdefault.jpg",
+          width: 320,
+        },
+        standard: {
+          height: 480,
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/sddefault.jpg",
+          width: 640,
+        },
+      },
+      title:
+        "Master Web3, Solidity and Smart Contracts by Building Never-Before-Seen Decentralized Applications",
+    },
+  },
+];

@@ -47,22 +47,35 @@ const Profile = () => {
   }, [idChannel]);
 
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-10 min-h-screen">
       <CoverPhoto />
 
       <div className="max-w-5xl mx-auto flex flex-col w-full gap-10">
         <Banner channelDetails={channelDetails} idChannel={idChannel} />
 
-        <div className="px-5">
+        <div className="px-5 gap-5 flex flex-col">
           <NavigateBar id={idChannel} />
-        </div>
 
-        <Routes>
-          <Route path="/" element={<Videos videos={videoCardArray} />} />
-          <Route path="/playlists" element={<PlayLists />} />
-          <Route path="/about" element={<About />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
+          <Routes>
+            <Route
+              path="/"
+              element={<Videos videos={videoCardArray} noPadding />}
+            />
+            <Route path="/playlists" element={<PlayLists />} />
+            <Route
+              path="/about"
+              element={
+                <About
+                  description={channelDetails?.snippet?.description}
+                  join={channelDetails?.snippet?.publishedAt}
+                  views={channelDetails?.statistics?.viewCount}
+                  location={channelDetails?.snippet?.country}
+                />
+              }
+            />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </div>
       </div>
     </div>
   );

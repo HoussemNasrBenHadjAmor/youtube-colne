@@ -1,11 +1,13 @@
 import { VideoCard, ChannelCard } from "./";
 
-const Videos = ({ videos, isSuggest }) => {
+const Videos = ({ videos, isSuggest, noPadding }) => {
   return (
     <div
       className={`${
         !isSuggest
-          ? "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 items-center justify-center gap-5 gap-y-10 p-5"
+          ? `grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 items-center justify-center gap-5 gap-y-10 ${
+              !noPadding && "p-5"
+            }`
           : "grid grid-cols-1 gap-5 items-center justify-center gap-y-10"
       }`}
     >

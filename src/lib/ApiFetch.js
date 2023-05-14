@@ -64,13 +64,13 @@ export const getChannelDetails = async (id) => {
 
 export const getChannelPlaylist = async (id) => {
   try {
-    const response = await axios.get(
+    const { data } = await axios.get(
       `${url}playlists?part=snippet,contentDetails&channelId=${id}&maxResults=50&key=${apiKey}`
     );
 
-    console.log("response", response);
+    console.log(data);
 
-    return response;
+    return data;
   } catch (error) {
     return error;
   }
