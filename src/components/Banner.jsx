@@ -6,7 +6,7 @@ import { ChevronRightIcon } from "@heroicons/react/24/outline";
 const Banner = ({ channelDetails, idChannel }) => {
   const { snippet, statistics } = channelDetails;
   return (
-    <div>
+    <div className="w-auto">
       <div className="flex gap-6 items-center px-3">
         <div className="hidden md:flex">
           <img
