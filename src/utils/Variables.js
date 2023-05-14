@@ -352,6 +352,9 @@ export const channelDetails = {
 
 export const channelPlaylists = [
   {
+    id: "PL6QREj8te1P5k_kIM2-8E4VP9Sej0Yez3",
+    etag: "oKcid3I3BsFj0aZsjyKUnuWDFWE",
+    king: "youtube#playlist",
     contentDetails: {
       itemsCount: 3,
     },

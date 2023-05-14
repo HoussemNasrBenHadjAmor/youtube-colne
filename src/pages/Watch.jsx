@@ -4,14 +4,23 @@ import { useLocation } from "react-router-dom";
 
 import { VideoPlayer, Suggestions, Videos } from "../components";
 
-import { getRelatedVideo, getVideoDetails } from "../lib/ApiFetch";
+import {
+  getRelatedVideo,
+  getVideoDetails,
+  getChannelPlayListItems,
+} from "../lib/ApiFetch";
 
 import { suggestedVideo, videoDetails } from "../utils/Variables";
 
 const Watch = () => {
   const { search } = useLocation();
 
-  const id = search.slice(3);
+  //*to verify if we're gonna display a list of videos
+  const isList = search.includes("list");
+
+  const id = isList
+    ? search.slice(3, search.indexOf("list") - 1)
+    : search.slice(3);
 
   const [relatedVideos, setRelatedVideos] = useState([]);
 
@@ -20,6 +29,7 @@ const Watch = () => {
   const suggestedVideos = new Array(15).fill(suggestedVideo);
 
   useEffect(() => {
+    getChannelPlayListItems();
     // getRelatedVideo(id).then(({ items }) => setRelatedVideos(items));
     // getVideoDetails(id).then(({ items }) => setVideoDetail(items));
   }, [id, search]);
@@ -32,6 +42,11 @@ const Watch = () => {
         <VideoPlayer id={id} videoDetails={videoDetails} />
       </div>
       <div className="md:w-[35%] w-full">
+        {isList && (
+          <div>
+            <p>hi</p>
+          </div>
+        )}
         <Suggestions videos={suggestedVideos} />
       </div>
     </div>

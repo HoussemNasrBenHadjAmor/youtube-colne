@@ -10,7 +10,7 @@ const VideoCard = ({ video }) => {
   const LinkTo = ({ children, link }) => <Link to={link}>{children}</Link>;
 
   return (
-    <LinkTo link={`/watch?v=${id?.videoId}`}>
+    <LinkTo link={`/watch?v=${id?.videoId}&list=x`}>
       {/* <HoverVideoPlayer
         videoSrc={`https://youtu.be/${id?.videoId}.mp4`}
         pausedOverlay={
