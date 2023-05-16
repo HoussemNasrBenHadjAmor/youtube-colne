@@ -28,7 +28,7 @@ const PlayLists = () => {
       <p className="text-white">Created playlists</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 gap-y-4 items-center justify-center">
         {channelPlaylists.map((list) => (
-          <PlayList playList={list} key={list?.snippet?.publishedAt} />
+          <PlayList playList={list} key={list?.id} />
         ))}
       </div>
     </div>

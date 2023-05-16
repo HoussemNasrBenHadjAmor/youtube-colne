@@ -65,7 +65,7 @@ export const getChannelDetails = async (id) => {
 export const getChannelPlaylist = async (id) => {
   try {
     const { data } = await axios.get(
-      `${url}playlists?part=snippet,contentDetails&channelId=${id}&maxResults=50&key=${apiKey}`
+      `${url}playlists?part=id,snippet,contentDetails&channelId=${id}&maxResults=50&key=${apiKey}`
     );
 
     console.log(data);
@@ -78,11 +78,11 @@ export const getChannelPlaylist = async (id) => {
 
 export const getChannelPlayListItems = async (id) => {
   try {
-    const response = await axios.get(
+    const { data } = await axios.get(
       `${url}playlistItems?part=snippet,contentDetails,status&playlistId=PL6QREj8te1P5k_kIM2-8E4VP9Sej0Yez3&maxResults=50&key=${apiKey}`
     );
 
-    console.log(response);
+    console.log(data);
 
     return response;
   } catch (error) {

@@ -399,7 +399,11 @@ export const channelPlaylists = [
         "Master Web3, Solidity and Smart Contracts by Building Never-Before-Seen Decentralized Applications",
     },
   },
+
   {
+    id: "PL6QREj8te1P5k_kIM2-8E4VP9Sej0Yez3",
+    etag: "oKcid3I3BsFj0aZsjyKUnuWDFWE",
+    king: "youtube#playlist",
     contentDetails: {
       itemsCount: 3,
     },
@@ -444,7 +448,11 @@ export const channelPlaylists = [
         "Master Web3, Solidity and Smart Contracts by Building Never-Before-Seen Decentralized Applications",
     },
   },
+
   {
+    id: "PL6QREj8te1P5k_kIM2-8E4VP9Sej0Yez3",
+    etag: "oKcid3I3BsFj0aZsjyKUnuWDFWE",
+    king: "youtube#playlist",
     contentDetails: {
       itemsCount: 3,
     },
@@ -489,7 +497,11 @@ export const channelPlaylists = [
         "Master Web3, Solidity and Smart Contracts by Building Never-Before-Seen Decentralized Applications",
     },
   },
+
   {
+    id: "PL6QREj8te1P5k_kIM2-8E4VP9Sej0Yez3",
+    etag: "oKcid3I3BsFj0aZsjyKUnuWDFWE",
+    king: "youtube#playlist",
     contentDetails: {
       itemsCount: 3,
     },
@@ -534,7 +546,11 @@ export const channelPlaylists = [
         "Master Web3, Solidity and Smart Contracts by Building Never-Before-Seen Decentralized Applications",
     },
   },
+
   {
+    id: "PL6QREj8te1P5k_kIM2-8E4VP9Sej0Yez3",
+    etag: "oKcid3I3BsFj0aZsjyKUnuWDFWE",
+    king: "youtube#playlist",
     contentDetails: {
       itemsCount: 3,
     },
@@ -577,6 +593,167 @@ export const channelPlaylists = [
       },
       title:
         "Master Web3, Solidity and Smart Contracts by Building Never-Before-Seen Decentralized Applications",
+    },
+  },
+];
+
+export const getPlayListsVideos = [
+  {
+    contentDetails: {
+      videoId: "Y89q6T1r1Yg",
+      videoPublishedAt: "2022-09-09T10:29:07Z",
+    },
+    etag: '"i-jAgvf-oVXv5C3Cxr5MRrymnwU"',
+    id: '"UEw2UVJFajh0ZTFQNWtfa0lNMi04RTRWUDlTZWowWWV6My41NkI0NEY2RDEwNTU3Q0M2"',
+    snippet: {
+      channelId: "UCmXmlB4-HJytD7wek0Uo97A",
+      channelTitle: "JavaScript Mastery",
+      description: "",
+      playlistId: "PL6QREj8te1P5k_kIM2-8E4VP9Sej0Yez3",
+      position: 0,
+      publishedAt: "2022-09-09T10:29:06Z",
+      ressourceId: {},
+      thumbnails: {
+        default: {
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/default.jpg",
+          height: 90,
+          width: 120,
+        },
+
+        high: {
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/hqdefault.jpg",
+          height: 360,
+          width: 480,
+        },
+
+        maxres: {
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/maxresdefault.jpg",
+          height: 720,
+          width: 1280,
+        },
+
+        medium: {
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/mqdefault.jpg",
+          height: 180,
+          width: 320,
+        },
+
+        standard: {
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/sddefault.jpg",
+          height: 480,
+          width: 640,
+        },
+      },
+      title:
+        "Build and Deploy a Web 3.0 Cryptocurrency Exchange Decentralized Application",
+      videoOwnerChannelId: "UCmXmlB4-HJytD7wek0Uo97A",
+      videoOwnerChannelTitle: "JavaScript Mastery",
+    },
+  },
+
+  {
+    contentDetails: {
+      videoId: "Y89q6T1r1Yg",
+      videoPublishedAt: "2022-09-09T10:29:07Z",
+    },
+    etag: '"i-jAgvf-oVXv5C3Cxr5MRrymnwU"',
+    id: '"UEw2UVJFajh0ZTFQNWtfa0lNMi04RTRWUDlTZWowWWV6My41NkI0NEY2RDEwNTU3Q0M2"',
+    snippet: {
+      channelId: "UCmXmlB4-HJytD7wek0Uo97A",
+      channelTitle: "JavaScript Mastery",
+      description: "",
+      playlistId: "PL6QREj8te1P5k_kIM2-8E4VP9Sej0Yez3",
+      position: 1,
+      publishedAt: "2022-09-09T10:29:06Z",
+      ressourceId: {},
+      thumbnails: {
+        default: {
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/default.jpg",
+          height: 90,
+          width: 120,
+        },
+
+        high: {
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/hqdefault.jpg",
+          height: 360,
+          width: 480,
+        },
+
+        maxres: {
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/maxresdefault.jpg",
+          height: 720,
+          width: 1280,
+        },
+
+        medium: {
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/mqdefault.jpg",
+          height: 180,
+          width: 320,
+        },
+
+        standard: {
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/sddefault.jpg",
+          height: 480,
+          width: 640,
+        },
+      },
+      title:
+        "Build and Deploy a Web 3.0 Cryptocurrency Exchange Decentralized Application",
+      videoOwnerChannelId: "UCmXmlB4-HJytD7wek0Uo97A",
+      videoOwnerChannelTitle: "JavaScript Mastery",
+    },
+  },
+
+  {
+    contentDetails: {
+      videoId: "Y89q6T1r1Yg",
+      videoPublishedAt: "2022-09-09T10:29:07Z",
+    },
+    etag: '"i-jAgvf-oVXv5C3Cxr5MRrymnwU"',
+    id: '"UEw2UVJFajh0ZTFQNWtfa0lNMi04RTRWUDlTZWowWWV6My41NkI0NEY2RDEwNTU3Q0M2"',
+    snippet: {
+      channelId: "UCmXmlB4-HJytD7wek0Uo97A",
+      channelTitle: "JavaScript Mastery",
+      description: "",
+      playlistId: "PL6QREj8te1P5k_kIM2-8E4VP9Sej0Yez3",
+      position: 2,
+      publishedAt: "2022-09-09T10:29:06Z",
+      ressourceId: {},
+      thumbnails: {
+        default: {
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/default.jpg",
+          height: 90,
+          width: 120,
+        },
+
+        high: {
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/hqdefault.jpg",
+          height: 360,
+          width: 480,
+        },
+
+        maxres: {
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/maxresdefault.jpg",
+          height: 720,
+          width: 1280,
+        },
+
+        medium: {
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/mqdefault.jpg",
+          height: 180,
+          width: 320,
+        },
+
+        standard: {
+          url: "https://i.ytimg.com/vi/Y89q6T1r1Yg/sddefault.jpg",
+          height: 480,
+          width: 640,
+        },
+      },
+      title:
+        "Build and Deploy a Web 3.0 Cryptocurrency Exchange Decentralized Application",
+      videoOwnerChannelId: "UCmXmlB4-HJytD7wek0Uo97A",
+      videoOwnerChannelTitle: "JavaScript Mastery",
     },
   },
 ];
