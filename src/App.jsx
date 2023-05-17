@@ -1,5 +1,5 @@
 import { Sidebar, Navbar, ErrorPage, SideBarMobile } from "./components";
-import { Body, Watch, Profile, ProfileAbout } from "./pages";
+import { Body, Watch, Profile, ProfileAbout, WatchList } from "./pages";
 import { useStateContext } from "./context/StateContextProvider";
 import { Routes, Route } from "react-router-dom";
 
@@ -25,6 +25,7 @@ const App = () => {
             <Route path="/" element={<Body />} />
             <Route path="/category/:id" element={<Body />} />
             <Route path="/watch" element={<Watch />} />
+            <Route path="/watch/list/:id" element={<WatchList />} />
             <Route path="/channel/:id/*" element={<Profile />} />
             <Route path="*" element={<ErrorPage />} />
             {/* <Body /> */}

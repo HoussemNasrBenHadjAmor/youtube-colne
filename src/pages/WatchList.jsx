@@ -13,13 +13,20 @@ import {
 import { suggestedVideo, videoDetails } from "../utils/Variables";
 import { isNumber } from "../utils/functions";
 
-const Watch = () => {
-  const { search } = useLocation();
+const WatchList = () => {
+  const { pathname } = useLocation();
 
-  console.log(search);
+  //*to verify if we're gonna display a list of playList videos
+  const indexSplit = pathname.includes("index=") && pathname.split("&");
+  const indexLength = indexSplit && indexSplit[1].slice(6);
+  const index = indexLength ? (isNumber(indexLength) ? indexLength : 0) : 0;
 
-  //*need to fix the id
-  const id = search.slice(3);
+  //* we need to test here if the URL contains ?v= or does contain ?list=
+  //* & then we need to get the videoId if it's ?v= || to get the listId if it's ?list =?
+  //* & then fetch the playlist items and test the number of the list to INDEX and if the index in the url is bigger than the length we need to display the videoId's index number 0
+  //* or if the index in the URL if less than the length then we'll display the same videoId's index
+
+  const id = 0; // const index = isIndex ? search[search.indexOf("index") + 6] : 0;
 
   const [relatedVideos, setRelatedVideos] = useState([]);
 
@@ -31,7 +38,7 @@ const Watch = () => {
     // getChannelPlayListItems();
     // getRelatedVideo(id).then(({ items }) => setRelatedVideos(items));
     // getVideoDetails(id).then(({ items }) => setVideoDetail(items));
-  }, [id, search]);
+  }, [id, pathname]);
 
   // console.log("videoDetails from the component", videoDetail);
 
@@ -41,10 +48,14 @@ const Watch = () => {
         <VideoPlayer id={id} videoDetails={videoDetails} />
       </div>
       <div className="md:w-[35%] w-full">
+        <div>
+          <p>hi</p>
+        </div>
+
         <Suggestions videos={suggestedVideos} />
       </div>
     </div>
   );
 };
 
-export default Watch;
+export default WatchList;

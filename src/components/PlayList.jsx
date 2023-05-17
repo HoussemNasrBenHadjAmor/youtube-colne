@@ -10,7 +10,7 @@ const PlayList = ({ playList }) => {
       : snippet?.title;
 
   return (
-    <Link to={`/watch?list=${id}&index=0`}>
+    <Link to={`/watch/list/${id}&index=0`}>
       <div className="flex flex-col gap-2">
         <div className="relative">
           <img
