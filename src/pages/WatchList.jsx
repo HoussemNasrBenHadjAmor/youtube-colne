@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { VideoPlayer, Suggestions, Videos } from "../components";
 
@@ -10,23 +10,27 @@ import {
   getChannelPlayListItems,
 } from "../lib/ApiFetch";
 
-import { suggestedVideo, videoDetails } from "../utils/Variables";
-import { isNumber } from "../utils/functions";
+import {
+  suggestedVideo,
+  videoDetails,
+  playListVideos,
+} from "../utils/Variables";
+import { isNumber, filterId } from "../utils/functions";
 
 const WatchList = () => {
-  const { pathname } = useLocation();
+  const { id } = useParams();
 
-  //*to verify if we're gonna display a list of playList videos
-  const indexSplit = pathname.includes("index=") && pathname.split("&");
-  const indexLength = indexSplit && indexSplit[1].slice(6);
+  const indexSplit = id.includes("index=") && id.split("&");
+  const indexLength = indexSplit && indexSplit[1]?.slice(6);
   const index = indexLength ? (isNumber(indexLength) ? indexLength : 0) : 0;
 
-  //* we need to test here if the URL contains ?v= or does contain ?list=
-  //* & then we need to get the videoId if it's ?v= || to get the listId if it's ?list =?
-  //* & then fetch the playlist items and test the number of the list to INDEX and if the index in the url is bigger than the length we need to display the videoId's index number 0
-  //* or if the index in the URL if less than the length then we'll display the same videoId's index
+  const idList = id.includes("index")
+    ? filterId(id.slice(0, id.indexOf("index")))
+    : id;
 
-  const id = 0; // const index = isIndex ? search[search.indexOf("index") + 6] : 0;
+  //* first of all : we need to fetch the playList and then test our index :
+  //* and then get the correct index as well the videoId of the correct index and then :
+  //* fetch the video details by the video id and display it on the screen.
 
   const [relatedVideos, setRelatedVideos] = useState([]);
 
@@ -34,20 +38,28 @@ const WatchList = () => {
 
   const suggestedVideos = new Array(15).fill(suggestedVideo);
 
+  const videoIndex = playListVideos.length < index ? 0 : index;
+
+  const video = playListVideos[videoIndex];
+
+  console.log(video);
+
+  const getVideoDisplayFromList = () => {};
+
   useEffect(() => {
     // getChannelPlayListItems();
     // getRelatedVideo(id).then(({ items }) => setRelatedVideos(items));
     // getVideoDetails(id).then(({ items }) => setVideoDetail(items));
-  }, [id, pathname]);
+  }, [id]);
 
   // console.log("videoDetails from the component", videoDetail);
 
   return (
     <div className="flex flex-col md:flex-row p-5 gap-7">
       <div className="md:w-[65%] w-full">
-        <VideoPlayer id={id} videoDetails={videoDetails} />
+        <VideoPlayer id={video?.contentDetails.videoId} videoDetails={video} />
       </div>
-      <div className="md:w-[35%] w-full">
+      <div className="md:w-[35%] w-full flex flex-col gap-2">
         <div>
           <p>hi</p>
         </div>

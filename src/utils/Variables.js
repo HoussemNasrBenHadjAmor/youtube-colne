@@ -597,14 +597,14 @@ export const channelPlaylists = [
   },
 ];
 
-export const getPlayListsVideos = [
+export const playListVideos = [
   {
+    etag: '"i-jAgvf-oVXv5C3Cxr5MRrymnwU"',
+    id: '"UEw2UVJFajh0ZTFQNWtfa0lNMi04RTRWUDlTZWowWWV6My41NkI0NEY2RDEwNTU3Q0M2"',
     contentDetails: {
       videoId: "Y89q6T1r1Yg",
       videoPublishedAt: "2022-09-09T10:29:07Z",
     },
-    etag: '"i-jAgvf-oVXv5C3Cxr5MRrymnwU"',
-    id: '"UEw2UVJFajh0ZTFQNWtfa0lNMi04RTRWUDlTZWowWWV6My41NkI0NEY2RDEwNTU3Q0M2"',
     snippet: {
       channelId: "UCmXmlB4-HJytD7wek0Uo97A",
       channelTitle: "JavaScript Mastery",
