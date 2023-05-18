@@ -36,37 +36,62 @@ const WatchList = () => {
 
   const [videoDetail, setVideoDetail] = useState(null);
 
+  const [channelListVideos, setChannelListVideos] = useState(null);
+
   const suggestedVideos = new Array(15).fill(suggestedVideo);
 
-  const videoIndex = playListVideos.length < index ? 0 : index;
+  const videoIndex =
+    channelListVideos && channelListVideos?.length < index ? 0 : index;
 
-  const video = playListVideos[videoIndex];
+  const video = channelListVideos && channelListVideos[videoIndex];
 
-  console.log(video);
+  const getChannelPlayListItemsFun = async () => {
+    try {
+      await getChannelPlayListItems(idList).then(({ items }) =>
+        setChannelListVideos(items)
+      );
+    } catch (error) {
+      return error;
+    }
+  };
 
-  const getVideoDisplayFromList = () => {};
+  const getVideoDetailsFun = async () => {
+    try {
+      await getVideoDetails(video?.contentDetails?.videoId).then(({ items }) =>
+        setVideoDetail(items)
+      );
+    } catch (error) {
+      return error;
+    }
+  };
 
   useEffect(() => {
-    // getChannelPlayListItems();
-    // getRelatedVideo(id).then(({ items }) => setRelatedVideos(items));
-    // getVideoDetails(id).then(({ items }) => setVideoDetail(items));
-  }, [id]);
+    getChannelPlayListItemsFun();
+  }, [idList]);
 
-  // console.log("videoDetails from the component", videoDetail);
+  useEffect(() => {
+    channelListVideos && getVideoDetailsFun();
+  }, [video]);
 
   return (
-    <div className="flex flex-col md:flex-row p-5 gap-7">
-      <div className="md:w-[65%] w-full">
-        <VideoPlayer id={video?.contentDetails.videoId} videoDetails={video} />
-      </div>
-      <div className="md:w-[35%] w-full flex flex-col gap-2">
-        <div>
-          <p>hi</p>
+    channelListVideos &&
+    videoDetail && (
+      <div className="flex flex-col md:flex-row p-5 gap-7">
+        <div className="md:w-[65%] w-full">
+          <VideoPlayer
+            id={videoDetail && videoDetail[0]?.id}
+            videoDetails={videoDetail && videoDetail[0]}
+          />
         </div>
+        <div className="md:w-[35%] w-full flex flex-col gap-2">
+          <div>
+            <p>hi</p>
+          </div>
 
-        <Suggestions videos={suggestedVideos} />
+          <Suggestions videos={suggestedVideos} />
+        </div>
       </div>
-    </div>
+    )
   );
 };
 
