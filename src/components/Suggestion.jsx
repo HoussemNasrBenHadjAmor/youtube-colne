@@ -13,14 +13,18 @@ const Suggestion = ({ video }) => {
   //   snippet.title?.length > 50 ? snippet.title?.slice(0, 50) + "..." : title;
 
   const shortTitle = title?.length > 50 ? title?.slice(0, 50) + "..." : title;
+  // const shortTitle =
+  //   snippet?.title?.length > 50
+  //     ? snippet?.title?.slice(0, 50) + "..."
+  //     : snippet?.title;
 
   return (
     <LinkTo link={`/watch?v=${id?.videoId}`}>
       <div className="flex-col md:flex md:flex-row md:gap-2">
         <div className="md:w-[40%] w-full">
           <img
-            src={thumbnails?.medium?.url}
-            // src={snippet?.thumbnails?.medium?.url}
+            // src={thumbnails?.medium?.url}
+            src={snippet?.thumbnails?.medium?.url}
             alt="cover-video"
             className="rounded-lg w-full"
           />

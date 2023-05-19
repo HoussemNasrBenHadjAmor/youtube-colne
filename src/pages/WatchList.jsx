@@ -28,10 +28,6 @@ const WatchList = () => {
     ? filterId(id.slice(0, id.indexOf("index")))
     : id;
 
-  //* first of all : we need to fetch the playList and then test our index :
-  //* and then get the correct index as well the videoId of the correct index and then :
-  //* fetch the video details by the video id and display it on the screen.
-
   const [relatedVideos, setRelatedVideos] = useState([]);
 
   const [videoDetail, setVideoDetail] = useState(null);
@@ -65,13 +61,28 @@ const WatchList = () => {
     }
   };
 
+  const getRelatedVideoFun = async () => {
+    try {
+      await getRelatedVideo(video?.contentDetails?.videoId).then(({ items }) =>
+        setRelatedVideos(items)
+      );
+    } catch (error) {
+      return error;
+    }
+  };
+
   useEffect(() => {
     getChannelPlayListItemsFun();
   }, [idList]);
 
   useEffect(() => {
-    channelListVideos && getVideoDetailsFun();
+    if (channelListVideos) {
+      getVideoDetailsFun();
+      getRelatedVideoFun();
+    }
   }, [video]);
+
+  console.log(relatedVideos);
 
   return (
     channelListVideos &&
@@ -88,7 +99,7 @@ const WatchList = () => {
             <p>hi</p>
           </div>
 
-          <Suggestions videos={suggestedVideos} />
+          <Suggestions videos={relatedVideos} />
         </div>
       </div>
     )
