@@ -14,6 +14,7 @@ import {
   suggestedVideo,
   videoDetails,
   playListVideos,
+  PlayListItemVideos,
 } from "../utils/Variables";
 import { isNumber, filterId } from "../utils/functions";
 
@@ -34,12 +35,13 @@ const WatchList = () => {
 
   const [channelListVideos, setChannelListVideos] = useState(null);
 
-  const suggestedVideos = new Array(15).fill(suggestedVideo);
-
   const videoIndex =
     channelListVideos && channelListVideos?.length < index ? 0 : index;
 
   const video = channelListVideos && channelListVideos[videoIndex];
+
+  const suggestedVideos = new Array(15).fill(suggestedVideo);
+  const temporaryId = "9DDX3US3kss";
 
   const getChannelPlayListItemsFun = async () => {
     try {
@@ -72,37 +74,40 @@ const WatchList = () => {
   };
 
   useEffect(() => {
-    getChannelPlayListItemsFun();
+    // getChannelPlayListItemsFun();
   }, [idList]);
 
   useEffect(() => {
     if (channelListVideos) {
-      getVideoDetailsFun();
-      getRelatedVideoFun();
+      // getVideoDetailsFun();
+      // getRelatedVideoFun();
     }
   }, [video]);
 
-  console.log(relatedVideos);
-
   return (
-    channelListVideos &&
-    videoDetail && (
-      <div className="flex flex-col md:flex-row p-5 gap-7">
-        <div className="md:w-[65%] w-full">
-          <VideoPlayer
-            id={videoDetail && videoDetail[0]?.id}
-            videoDetails={videoDetail && videoDetail[0]}
-          />
-        </div>
-        <div className="md:w-[35%] w-full flex flex-col gap-2">
-          <div>
-            <p>hi</p>
-          </div>
-
-          <Suggestions videos={relatedVideos} />
-        </div>
+    // channelListVideos &&
+    // videoDetail && (
+    <div className="flex flex-col md:flex-row p-5 gap-7">
+      <div className="md:w-[65%] w-full">
+        <VideoPlayer
+          id={temporaryId}
+          videoDetails={videoDetails}
+          // id={videoDetail && videoDetail[0]?.id}
+          // videoDetails={videoDetail && videoDetail[0]}
+        />
       </div>
-    )
+      <div className="md:w-[35%] w-full flex flex-col gap-2">
+        <div>
+          <p>hi</p>
+        </div>
+
+        <Suggestions
+          // videos={relatedVideos}
+          videos={suggestedVideos}
+        />
+      </div>
+    </div>
+    // )
   );
 };
 

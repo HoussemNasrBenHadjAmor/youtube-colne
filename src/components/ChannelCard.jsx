@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 
 const ChannelCard = ({ video }) => {
   const { snippet, thumbnails, title } = video;
-  const urlTitle = title?.replace(/\s/g, "").toLowerCase();
   const LinkTo = ({ children, link }) => <Link to={link}>{children}</Link>;
 
   return (

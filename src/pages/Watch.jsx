@@ -16,8 +16,6 @@ import { isNumber } from "../utils/functions";
 const Watch = () => {
   const { search } = useLocation();
 
-  console.log(search);
-
   //*need to fix the id
   const id = search.slice(3);
 
