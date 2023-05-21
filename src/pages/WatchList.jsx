@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import { useParams } from "react-router-dom";
 
-import { VideoPlayer, Suggestions, Videos } from "../components";
+import { VideoPlayer, Suggestions, Videos, PlayListItems } from "../components";
 
 import {
   getRelatedVideo,
@@ -87,8 +87,8 @@ const WatchList = () => {
   return (
     // channelListVideos &&
     // videoDetail && (
-    <div className="flex flex-col md:flex-row p-5 gap-7">
-      <div className="md:w-[65%] w-full">
+    <div className="flex flex-col lg:flex-row p-5 gap-7">
+      <div className="lg:w-[65%] w-full">
         <VideoPlayer
           id={temporaryId}
           videoDetails={videoDetails}
@@ -96,9 +96,9 @@ const WatchList = () => {
           // videoDetails={videoDetail && videoDetail[0]}
         />
       </div>
-      <div className="md:w-[35%] w-full flex flex-col gap-2">
+      <div className="lg:w-[35%] w-full flex flex-col gap-5">
         <div>
-          <p>hi</p>
+          <PlayListItems videos={PlayListItemVideos} />
         </div>
 
         <Suggestions

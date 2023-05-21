@@ -816,6 +816,7 @@ export const PlayListItemVideos = [
       videoOwnerChannelId: "UCmXmlB4-HJytD7wek0Uo97A",
       videoOwnerChannelTitle: "JavaScript Mastery",
     },
+
     status: {
       privacyStatus: "public",
     },
@@ -835,7 +836,7 @@ export const PlayListItemVideos = [
       channelTitle: "JavaScript Mastery",
       description: "bla bla bla",
       playlistId: "PL6QREj8te1P5k_kIM2-8E4VP9Sej0Yez3",
-      position: 0,
+      position: 1,
       publishedAt: "2022-09-09T10:29:06Z",
       resourceId: {
         kind: "youtube#video",
@@ -897,7 +898,7 @@ export const PlayListItemVideos = [
       channelTitle: "JavaScript Mastery",
       description: "bla bla bla",
       playlistId: "PL6QREj8te1P5k_kIM2-8E4VP9Sej0Yez3",
-      position: 0,
+      position: 2,
       publishedAt: "2022-09-09T10:29:06Z",
       resourceId: {
         kind: "youtube#video",
