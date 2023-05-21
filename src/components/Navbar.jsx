@@ -103,7 +103,9 @@ const Navbar = ({ isDark }) => {
 
       <div className="flex gap-5 items-center">
         <div className="flex md:hidden">
-          <MagnifyingGlassIcon className="md:w-6 w-5 cursor-pointer" />
+          <Link to={`/results?search_query=madrid`}>
+            <MagnifyingGlassIcon className="md:w-6 w-5 cursor-pointer" />
+          </Link>
         </div>
 
         <button>
