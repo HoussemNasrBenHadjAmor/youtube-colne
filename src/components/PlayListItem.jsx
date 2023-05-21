@@ -18,9 +18,9 @@ const PlayListItem = ({ video }) => {
             className="w-full object-contain rounded-md"
           />
         </div>
-        <div className="text-sm mt-1 lg:w-[50%] w-full">
-          <p className="text-white">{title}</p>
-          <p>{snippet?.videoOwnerChannelTitle}</p>
+        <div className="mt-1 lg:w-[50%] w-full">
+          <p className="text-sm text-white font-semibold">{title}</p>
+          <p className="text-xs">{snippet?.videoOwnerChannelTitle}</p>
         </div>
       </div>
     </Link>

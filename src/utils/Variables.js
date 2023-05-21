@@ -946,3 +946,46 @@ export const PlayListItemVideos = [
     },
   },
 ];
+
+export const searchResults = [
+  {
+    snippet: {
+      title: "JavaScript Tutorial for Beginners: Learn JavaScript in 1 Hour",
+    },
+  },
+  {
+    snippet: {
+      title: "Learn JavaScript - Full Course for Beginners",
+    },
+  },
+  {
+    snippet: {
+      title: "JavaScript Programming - Full Course",
+    },
+  },
+  {
+    snippet: {
+      title: "JavaScript in 100 Seconds",
+    },
+  },
+  {
+    snippet: {
+      title: "100+ JavaScript Concepts you Need to Know",
+    },
+  },
+  {
+    snippet: {
+      title: "JavaScript Full Course (2023) - Beginner to Pro - Part 1",
+    },
+  },
+  {
+    snippet: {
+      title: "JavaScript Mastery",
+    },
+  },
+  {
+    snippet: {
+      title: "How to Learn Javascript in 2023 (From ZERO)",
+    },
+  },
+];
