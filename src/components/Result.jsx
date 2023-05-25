@@ -13,7 +13,7 @@ const Result = ({ item }) => {
           <img
             src={video?.thumbnails?.medium?.url}
             alt="profile"
-            className="rounded-md object-cover w-full"
+            className="rounded-xl object-cover w-full"
           />
         </div>
 
@@ -36,9 +36,10 @@ const Result = ({ item }) => {
       </div>
     </Link>
   );
+
   const ChannelCard = ({ channel }) => (
     <Link to={`/channel/${channel?.id?.channelId}`}>
-      <div className="md:flex md:flex-row flex-col items-center gap-3">
+      <div className="md:flex md:flex-row flex-col items-center gap-3 border-y-[1px] border-white border-opacity-20 py-5">
         <div className="w-full md:w-[40%] md:max-w-sm flex items-center justify-center">
           <img
             src={channel?.thumbnails?.medium?.url}
@@ -47,7 +48,7 @@ const Result = ({ item }) => {
           />
         </div>
         <div className="w-full md:max-w-md md:w-[60%]">
-          <p className="text-white font-bold truncate">{channel?.title}</p>
+          <p className="text-white font-semibold truncate">{channel?.title}</p>
 
           <p className="text-sm"> {channel?.snippet?.description} </p>
         </div>
