@@ -20,7 +20,6 @@ const Search = () => {
             type="text"
             placeholder="Search..."
             className="outline-none rounded-full w-full bg-neutral-800 p-1 px-2 text-sm text-white"
-            autoFocus
             onChange={(e) => setSearch(e.target.value)}
             value={search}
           />
