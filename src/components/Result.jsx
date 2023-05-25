@@ -8,12 +8,12 @@ const Result = ({ item }) => {
 
   const VideoCard = ({ video }) => (
     <Link to={`/watch?v=${video?.id?.videoId}`}>
-      <div className="md:flex md:flex-row flex-col gap-3">
+      <div className="md:flex md:flex-row flex-col flex gap-3">
         <div className="w-full md:max-w-lg lg:max-w-sm">
           <img
             src={video?.thumbnails?.medium?.url}
             alt="profile"
-            className="rounded-xl object-cover w-full"
+            className="rounded-lg object-cover w-full"
           />
         </div>
 
@@ -26,7 +26,7 @@ const Result = ({ item }) => {
           </div>
 
           <Link to={`/channel/${video?.snippet?.channelId}`}>
-            <p className="text-gray-400 text-xs hover:text-white duration-300 ease-in-out">
+            <p className="md:text-gray-400 text-xs md:hover:text-white duration-300 ease-in-out text-white">
               {video?.snippet?.channelTitle}
             </p>
           </Link>
@@ -39,15 +39,15 @@ const Result = ({ item }) => {
 
   const ChannelCard = ({ channel }) => (
     <Link to={`/channel/${channel?.id?.channelId}`}>
-      <div className="md:flex md:flex-row flex-col items-center gap-3 border-y-[1px] border-white border-opacity-20 py-5">
+      <div className="md:flex md:flex-row flex-col flex items-center gap-3 border-y-[1px] border-white border-opacity-20 py-5">
         <div className="w-full md:w-[40%] md:max-w-sm flex items-center justify-center">
           <img
             src={channel?.thumbnails?.medium?.url}
             alt="profile"
-            className="rounded-full object-cover md:w-[60%] lg:w-[30%]"
+            className="rounded-full h-32 md:h-auto object-cover md:w-[60%] lg:w-[30%]"
           />
         </div>
-        <div className="w-full md:max-w-md md:w-[60%]">
+        <div className="w-full md:max-w-md md:w-[60%] flex flex-col gap-2 md:gap-0">
           <p className="text-white font-semibold truncate">{channel?.title}</p>
 
           <p className="text-sm"> {channel?.snippet?.description} </p>

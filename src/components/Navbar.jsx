@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useStateContext } from "../context/StateContextProvider";
 import { useDebounce } from "use-debounce";
 
@@ -11,6 +11,7 @@ import {
   SunIcon,
   MoonIcon,
   MagnifyingGlassIcon,
+  ChevronLeftIcon,
 } from "@heroicons/react/24/outline";
 
 const Navbar = ({ isDark }) => {
@@ -20,6 +21,7 @@ const Navbar = ({ isDark }) => {
   const [searchValue] = useDebounce(search, 2000);
   const [show, setShow] = useState(false);
   const divRef = useRef();
+  const navigate = useNavigate();
 
   const Results = ({ data }) => {
     return (
@@ -74,7 +76,7 @@ const Navbar = ({ isDark }) => {
   }, [searchValue, search]);
 
   return (
-    <div className="flex items-center justify-between p-3 px-5">
+    <div className="flex items-center justify-between p-3 px-5 relative transition-all duration-300 ease-in-out">
       <div className="flex justify-center gap-4 items-center">
         <button onClick={hideShow} className="hidden md:flex">
           <Bars3Icon className="w-6 h-6" />
@@ -98,14 +100,22 @@ const Navbar = ({ isDark }) => {
           onChange={(e) => setSearch(e.target.value)}
           value={search}
         />
-        <MagnifyingGlassIcon className="w-6 h-6 cursor-pointer" />
+
+        <MagnifyingGlassIcon
+          className="w-6 h-6 cursor-pointer"
+          onClick={() => {
+            navigate(navigateTo);
+            setShow(false);
+          }}
+        />
       </div>
 
       <div className="flex gap-5 items-center">
         <div className="flex md:hidden">
-          <Link to={`/results?search_query=madrid`}>
-            <MagnifyingGlassIcon className="md:w-6 w-5 cursor-pointer" />
-          </Link>
+          <MagnifyingGlassIcon
+            className="md:w-6 w-5 cursor-pointer"
+            onClick={() => navigate("/search")}
+          />
         </div>
 
         <button>

@@ -4,8 +4,11 @@ import { NavItem } from "./";
 
 const SideBarMobile = () => {
   const { pathname } = useLocation();
+  const pattern = ["channel", "search"];
 
-  const isNotShownPath = pathname.search("channel") === 1;
+  const isNotShownPath = pathname.match(
+    new RegExp("\\b(" + pattern.join("|") + ")\\b", "ig")
+  );
 
   return (
     !isNotShownPath && (
