@@ -33,8 +33,8 @@ const VideoCard = ({ video }) => {
       /> */}
 
       <img
-        src={thumbnails?.medium?.url}
-        // src={snippet?.thumbnails?.medium?.url}
+        // src={thumbnails?.medium?.url}
+        src={snippet?.thumbnails?.medium?.url}
         alt="cover-video"
         className="rounded-lg w-full"
       />

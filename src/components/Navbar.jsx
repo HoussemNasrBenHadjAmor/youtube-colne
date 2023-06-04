@@ -33,11 +33,9 @@ const Navbar = ({ isDark }) => {
               ?.replace(/\s+/g, "+")
               ?.toLocaleLowerCase()}`}
             onClick={() => setShow(false)}
+            key={d?.id?.videoId}
           >
-            <div
-              className="px-3 p-2 text-white text-sm hover:bg-zinc-700 duration-200 ease-out"
-              key={d?.id?.videoId}
-            >
+            <div className="px-3 p-2 text-white text-sm hover:bg-zinc-700 duration-200 ease-out">
               <p>{d?.snippet?.title?.toLowerCase()}</p>
             </div>
           </Link>

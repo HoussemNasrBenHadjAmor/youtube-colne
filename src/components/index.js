@@ -17,3 +17,5 @@ export { default as PlayListItems } from "./PlayListItems";
 export { default as PlayListItem } from "./PlayListItem";
 export { default as About } from "./About";
 export { default as Result } from "./Result";
+
+export { default as HomeLoader } from "./Loader/HomeLoader";

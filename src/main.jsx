@@ -7,9 +7,12 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import App from "./App";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { StateContextProvider } from "./context/StateContextProvider";
 import { Watch, Profile } from "./pages";
 import { ErrorPage } from "./components";
-import { StateContextProvider } from "./context/StateContextProvider";
+
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
@@ -37,11 +40,13 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <StateContextProvider>
-      {/* <RouterProvider router={router} /> */}
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </StateContextProvider>
+    <QueryClientProvider client={queryClient}>
+      <StateContextProvider>
+        {/* <RouterProvider router={router} /> */}
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </StateContextProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );

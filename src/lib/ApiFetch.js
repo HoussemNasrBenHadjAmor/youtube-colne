@@ -70,8 +70,6 @@ export const getChannelPlaylist = async (id) => {
       `${url}playlists?part=id,snippet,contentDetails&channelId=${id}&maxResults=50&key=${apiKey}`
     );
 
-    console.log(data);
-
     return data;
   } catch (error) {
     return error;

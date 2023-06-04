@@ -8,8 +8,8 @@ const ChannelCard = ({ video }) => {
     <LinkTo link={`/channel/${snippet?.channelId}`}>
       <div className="flex flex-col justify-center items-center">
         <img
-          src={thumbnails?.medium?.url}
-          // src={snippet?.thumbnails?.medium?.url}
+          // src={thumbnails?.medium?.url}
+          src={snippet?.thumbnails?.medium?.url}
           alt="cover-video"
           className="rounded-full h-32"
         />

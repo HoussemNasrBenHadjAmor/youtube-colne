@@ -1,21 +1,17 @@
-import { useState, useEffect } from "react";
-
 import { useParams } from "react-router-dom";
 
-import { VideoPlayer, Suggestions, Videos, PlayListItems } from "../components";
-
 import {
-  getRelatedVideo,
-  getVideoDetails,
-  getChannelPlayListItems,
-} from "../lib/ApiFetch";
-
+  useChannelPlayListItems,
+  useVideoDetails,
+  useRelatedVideo,
+} from "../lib/transtackReactQuery";
 import {
   suggestedVideo,
   videoDetails,
   playListVideos,
   PlayListItemVideos,
 } from "../utils/Variables";
+import { VideoPlayer, Suggestions, PlayListItems } from "../components";
 import { isNumber, filterId } from "../utils/functions";
 
 const WatchList = () => {
@@ -29,80 +25,47 @@ const WatchList = () => {
     ? filterId(id.slice(0, id.indexOf("index")))
     : id;
 
-  const [relatedVideos, setRelatedVideos] = useState([]);
+  // const { data: playListItemsData, error: playListItemsError } =
+  //   useChannelPlayListItems(idList);
 
-  const [videoDetail, setVideoDetail] = useState(null);
+  // const videoIndex =
+  //   playListItemsData && playListItemsData?.length < index ? 0 : index;
 
-  const [channelListVideos, setChannelListVideos] = useState(null);
+  // const video = playListItemsData && playListItemsData[videoIndex];
 
-  const videoIndex =
-    channelListVideos && channelListVideos?.length < index ? 0 : index;
+  // const { data: videoDetailsData, error: videoDetailsError } = useVideoDetails(
+  //   video?.contentDetails?.videoId
+  // );
 
-  const video = channelListVideos && channelListVideos[videoIndex];
+  // const { data: relatedVideoData, error: relatedVideoError } = useRelatedVideo(
+  //   video?.contentDetails?.videoId
+  // );
 
   const suggestedVideos = new Array(15).fill(suggestedVideo);
   const temporaryId = "9DDX3US3kss";
 
-  const getChannelPlayListItemsFun = async () => {
-    try {
-      await getChannelPlayListItems(idList).then(({ items }) =>
-        setChannelListVideos(items)
-      );
-    } catch (error) {
-      return error;
-    }
-  };
-
-  const getVideoDetailsFun = async () => {
-    try {
-      await getVideoDetails(video?.contentDetails?.videoId).then(({ items }) =>
-        setVideoDetail(items)
-      );
-    } catch (error) {
-      return error;
-    }
-  };
-
-  const getRelatedVideoFun = async () => {
-    try {
-      await getRelatedVideo(video?.contentDetails?.videoId).then(({ items }) =>
-        setRelatedVideos(items)
-      );
-    } catch (error) {
-      return error;
-    }
-  };
-
-  useEffect(() => {
-    // getChannelPlayListItemsFun();
-  }, [idList]);
-
-  useEffect(() => {
-    if (channelListVideos) {
-      // getVideoDetailsFun();
-      // getRelatedVideoFun();
-    }
-  }, [video]);
-
   return (
-    // channelListVideos &&
-    // videoDetail && (
+    // playListItemsData &&
+    // videoDetailsData && (
     <div className="flex flex-col lg:flex-row p-5 gap-7">
       <div className="lg:w-[65%] w-full">
         <VideoPlayer
           id={temporaryId}
           videoDetails={videoDetails}
-          // id={videoDetail && videoDetail[0]?.id}
-          // videoDetails={videoDetail && videoDetail[0]}
+          // id={videoDetailsData && videoDetailsData[0]?.id}
+          // videoDetails={videoDetailsData && videoDetailsData[0]}
         />
       </div>
       <div className="lg:w-[35%] w-full flex flex-col gap-5">
         <div>
-          <PlayListItems videos={PlayListItemVideos} />
+          <PlayListItems
+            videos={PlayListItemVideos}
+            // videos={playListItemsData}
+          />
         </div>
 
         <Suggestions
-          // videos={relatedVideos}
+          // videos={relatedVideoData && relatedVideoData}
           videos={suggestedVideos}
         />
       </div>

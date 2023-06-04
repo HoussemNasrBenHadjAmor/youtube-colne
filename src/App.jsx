@@ -30,7 +30,6 @@ const App = () => {
             <Route path="/results" element={<Results />} />
             <Route path="/search" element={<Search />} />
             <Route path="*" element={<ErrorPage />} />
-            {/* <Body /> */}
           </Routes>
         </div>
       </div>
