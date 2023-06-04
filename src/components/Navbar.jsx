@@ -86,7 +86,7 @@ const Navbar = ({ isDark }) => {
       </div>
 
       <div
-        className="gap-2 bg-[#212121] rounded-lg p-1 px-3 hidden md:flex w-full md:max-w-lg relative"
+        className="gap-2 bg-[#212121] rounded-lg px-3 hidden md:flex w-full md:max-w-lg relative items-center"
         ref={divRef}
       >
         {searchValue && show && <Results data={searchResults} />}
@@ -94,7 +94,7 @@ const Navbar = ({ isDark }) => {
         <input
           type="text"
           placeholder="Search..."
-          className="bg-transparent outline-none w-full"
+          className="bg-transparent outline-none w-full border-none focus:ring-0"
           onChange={(e) => setSearch(e.target.value)}
           value={search}
         />
@@ -102,7 +102,12 @@ const Navbar = ({ isDark }) => {
         <MagnifyingGlassIcon
           className="w-6 h-6 cursor-pointer"
           onClick={() => {
-            navigate(navigateTo);
+            navigate(
+              `/results?search_query=${searchValue
+                ?.trim()
+                ?.replace(/\s+/g, "+")
+                ?.toLocaleLowerCase()}`
+            );
             setShow(false);
           }}
         />

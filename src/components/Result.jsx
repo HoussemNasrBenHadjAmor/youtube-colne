@@ -11,7 +11,7 @@ const Result = ({ item }) => {
       <div className="md:flex md:flex-row flex-col flex gap-3">
         <div className="w-full md:max-w-lg lg:max-w-sm">
           <img
-            src={video?.thumbnails?.medium?.url}
+            src={video?.snippet?.thumbnails?.medium?.url}
             alt="profile"
             className="rounded-lg object-cover w-full"
           />
@@ -42,7 +42,7 @@ const Result = ({ item }) => {
       <div className="md:flex md:flex-row flex-col flex items-center gap-3 border-y-[1px] border-white border-opacity-20 py-5">
         <div className="w-full md:w-[40%] md:max-w-sm flex items-center justify-center">
           <img
-            src={channel?.thumbnails?.medium?.url}
+            src={channel?.snippet?.thumbnails?.medium?.url}
             alt="profile"
             className="rounded-full h-32 md:h-auto object-cover md:w-[60%] lg:w-[30%]"
           />

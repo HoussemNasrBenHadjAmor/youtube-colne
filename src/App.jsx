@@ -7,7 +7,7 @@ const App = () => {
   const { open } = useStateContext();
 
   return (
-    <div>
+    <div className="transition-all duration-1000 ease-in-out">
       <div className="">
         <Navbar />
       </div>
