@@ -25,7 +25,11 @@ export const videoCard = {
         width: 480,
         height: 360,
       },
-      medium: { url: "https://i.ytimg.com/vi/9DDX3US3kss/mqdefault.jpg" },
+      medium: {
+        url: "https://i.ytimg.com/vi/9DDX3US3kss/mqdefault.jpg",
+        width: 320,
+        height: 180,
+      },
     },
 
     title:

@@ -27,7 +27,6 @@ const ProfileHomeLoader = () => {
       <div className="w-full h-24 sm:h-32 md:h-56 animate-pulse bg-[#353535]" />
       <div className="max-w-5xl mx-auto flex flex-col w-full gap-10">
         <Banner />
-        <NavigateBar />
         <HomeLoader />
       </div>
     </div>

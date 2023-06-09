@@ -10,7 +10,7 @@ const Body = () => {
 
   let newArray = channelCardArray.concat(videoCardArray);
 
-  const isLoading = false;
+  const isLoading = true;
 
   // console.log("new Array", newArray);
 
