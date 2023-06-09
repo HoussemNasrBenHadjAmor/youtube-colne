@@ -22,7 +22,7 @@ const Profile = () => {
 
   let videoCardArray = new Array(49).fill(videoCard);
 
-  const isLoading = true;
+  const isLoading = false;
 
   const CoverPhoto = () => (
     <img
