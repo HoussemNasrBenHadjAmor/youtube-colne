@@ -20,16 +20,11 @@ const ProfileHomeLoader = () => {
     </div>
   );
 
-  const NavigateBar = () => (
-    <div>
-      <p>NavigateBar</p>
-    </div>
-  );
+  const NavigateBar = () => <div className="" />;
 
   return (
     <div className="flex flex-col gap-10 min-h-screen animate-pulse">
-      //*here goes the cover profile image loader//*
-      <div className="" />
+      <div className="w-full h-24 sm:h-32 md:h-56 animate-pulse bg-[#353535]" />
       <div className="max-w-5xl mx-auto flex flex-col w-full gap-10">
         <Banner />
         <NavigateBar />
