@@ -8,6 +8,7 @@ import {
   PlayLists,
   About,
   ErrorPage,
+  ProfileHomeLoader,
 } from "../components";
 import { getChannelDetails, getChannelVideos } from "../lib/ApiFetch";
 import { channelDetails, videoCard } from "../utils/Variables";
@@ -20,6 +21,8 @@ const Profile = () => {
   const idChannel = useParams()?.id;
 
   let videoCardArray = new Array(49).fill(videoCard);
+
+  const isLoading = true;
 
   const CoverPhoto = () => (
     <img
@@ -46,7 +49,9 @@ const Profile = () => {
     // ChannelVideos();
   }, [idChannel]);
 
-  return (
+  return isLoading ? (
+    <ProfileHomeLoader />
+  ) : (
     <div className="flex flex-col gap-10 min-h-screen">
       <CoverPhoto />
 

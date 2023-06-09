@@ -18,4 +18,6 @@ export { default as PlayListItem } from "./PlayListItem";
 export { default as About } from "./About";
 export { default as Result } from "./Result";
 
+//Loading componenets
 export { default as HomeLoader } from "./Loader/HomeLoader";
+export { default as ProfileHomeLoader } from "./Loader/ProfileHomeLoader";
