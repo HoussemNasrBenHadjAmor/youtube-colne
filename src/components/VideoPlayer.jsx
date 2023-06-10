@@ -17,15 +17,13 @@ const VideoPlayer = ({ id, videoDetails }) => {
 
   return (
     <div className="flex flex-col gap-5">
-      <div>
-        <ReactPlayer
-          url={`https://www.youtube.com/watch?v=${id}`}
-          controls
-          className="react-player"
-          width="100%"
-          // playing="true"
-        />
-      </div>
+      <ReactPlayer
+        url={`https://www.youtube.com/watch?v=${id}`}
+        controls
+        className="react-player h-full w-full"
+        width="100%"
+        // playing="true"
+      />
 
       <div className="flex flex-col gap-4">
         <h1 className="text-white text-xl font-semibold">

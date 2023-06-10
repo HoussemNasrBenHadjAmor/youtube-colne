@@ -11,7 +11,12 @@ import {
   playListVideos,
   PlayListItemVideos,
 } from "../utils/Variables";
-import { VideoPlayer, Suggestions, PlayListItems } from "../components";
+import {
+  VideoPlayer,
+  Suggestions,
+  PlayListItems,
+  WatchLoader,
+} from "../components";
 import { isNumber, filterId } from "../utils/functions";
 
 const WatchList = () => {
@@ -24,6 +29,8 @@ const WatchList = () => {
   const idList = id.includes("index")
     ? filterId(id.slice(0, id.indexOf("index")))
     : id;
+
+  const isLoading = false;
 
   // const { data: playListItemsData, error: playListItemsError } =
   //   useChannelPlayListItems(idList);
@@ -47,29 +54,34 @@ const WatchList = () => {
   return (
     // playListItemsData &&
     // videoDetailsData && (
-    <div className="flex flex-col lg:flex-row p-5 gap-7">
-      <div className="lg:w-[65%] w-full">
-        <VideoPlayer
-          id={temporaryId}
-          videoDetails={videoDetails}
-          // id={videoDetailsData && videoDetailsData[0]?.id}
-          // videoDetails={videoDetailsData && videoDetailsData[0]}
-        />
-      </div>
-      <div className="lg:w-[35%] w-full flex flex-col gap-5">
-        <div>
-          <PlayListItems
-            videos={PlayListItemVideos}
-            // videos={playListItemsData}
+
+    isLoading ? (
+      <WatchLoader />
+    ) : (
+      <div className="flex flex-col lg:flex-row p-5 gap-7">
+        <div className="lg:w-[65%] w-full">
+          <VideoPlayer
+            id={temporaryId}
+            videoDetails={videoDetails}
+            // id={videoDetailsData && videoDetailsData[0]?.id}
+            // videoDetails={videoDetailsData && videoDetailsData[0]}
           />
         </div>
+        <div className="lg:w-[35%] w-full flex flex-col gap-5">
+          <div>
+            <PlayListItems
+              videos={PlayListItemVideos}
+              // videos={playListItemsData}
+            />
+          </div>
 
-        <Suggestions
-          // videos={relatedVideoData && relatedVideoData}
-          videos={suggestedVideos}
-        />
+          <Suggestions
+            // videos={relatedVideoData && relatedVideoData}
+            videos={suggestedVideos}
+          />
+        </div>
       </div>
-    </div>
+    )
     // )
   );
 };

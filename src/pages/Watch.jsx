@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import { useLocation } from "react-router-dom";
 
-import { VideoPlayer, Suggestions, Videos } from "../components";
+import { VideoPlayer, Suggestions, Videos, WatchLoader } from "../components";
 
 import {
   getRelatedVideo,
@@ -25,6 +25,8 @@ const Watch = () => {
 
   const suggestedVideos = new Array(15).fill(suggestedVideo);
 
+  const isLoading = false;
+
   useEffect(() => {
     // getChannelPlayListItems();
     // getRelatedVideo(id).then(({ items }) => setRelatedVideos(items));
@@ -33,7 +35,9 @@ const Watch = () => {
 
   // console.log("videoDetails from the component", videoDetail);
 
-  return (
+  return isLoading ? (
+    <WatchLoader />
+  ) : (
     <div className="flex flex-col md:flex-row p-5 gap-7">
       <div className="lg:w-[65%] w-full">
         <VideoPlayer id={id} videoDetails={videoDetails} />
