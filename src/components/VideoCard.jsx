@@ -40,17 +40,17 @@ const VideoCard = ({ video }) => {
       />
 
       <div className="pr-3 mt-2">
-        <p className="truncate text-white font-semibold text-xs sm:text-sm">
+        <p className="truncate font-semibold text-xs sm:text-sm">
           {snippet?.description}
         </p>
 
         <div className="mt-1">
           <LinkTo link={`/channel/${snippet?.channelId}`}>
-            <p className="text-gray-400 text-xs hover:text-white duration-300 ease-in-out">
+            <p className="dark:text-gray-400 text-xs dark:hover:text-white duration-300 ease-in-out">
               {snippet?.channelTitle}
             </p>
           </LinkTo>
-          <p className="text-xs text-gray-400">
+          <p className="text-xs dark:text-gray-400">
             {timeAgo.format(new Date(snippet?.publishTime))}
           </p>
         </div>

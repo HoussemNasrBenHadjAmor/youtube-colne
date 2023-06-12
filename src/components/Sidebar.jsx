@@ -8,7 +8,7 @@ const Sidebar = () => {
   return (
     <div>
       <div
-        className={`hidden h-full md:flex md:flex-col md:gap-2 md:h-screen transition-all duration-500 ${
+        className={`hidden h-full md:flex md:flex-col md:gap-2 md:h-screen ${
           open ? "animate-closeMenu" : "animate-openMenu"
         }`}
       >

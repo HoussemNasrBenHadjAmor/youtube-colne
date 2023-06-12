@@ -19,7 +19,7 @@ const PlayListItem = ({ video }) => {
           />
         </div>
         <div className="mt-1 lg:w-[50%] w-full">
-          <p className="text-sm text-white font-semibold">{title}</p>
+          <p className="text-sm font-semibold">{title}</p>
           <p className="text-xs">{snippet?.videoOwnerChannelTitle}</p>
         </div>
       </div>

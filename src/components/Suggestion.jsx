@@ -28,17 +28,15 @@ const Suggestion = ({ video }) => {
         </div>
 
         <div className="w-full mt-3 md:mt-0 pr-3 md:w-[60%]">
-          <p className="text-white font-semibold text-xs sm:text-sm">
-            {shortTitle}
-          </p>
+          <p className="font-semibold text-xs sm:text-sm">{shortTitle}</p>
 
           <div className="mt-1">
             <LinkTo link={`/@${snippet?.channelTitle}`}>
-              <p className="text-gray-400 text-xs hover:text-white duration-300 ease-in-out">
+              <p className="dark:text-gray-400 text-xs dark:hover:text-white duration-300 ease-in-out">
                 {snippet?.channelTitle}
               </p>
             </LinkTo>
-            <p className="text-xs text-gray-400">
+            <p className="text-xs dark:text-gray-400">
               {timeAgo.format(new Date(snippet?.publishTime))}
             </p>
           </div>

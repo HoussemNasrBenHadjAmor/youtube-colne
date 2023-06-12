@@ -14,8 +14,8 @@ import {
   ChevronLeftIcon,
 } from "@heroicons/react/24/outline";
 
-const Navbar = ({ isDark }) => {
-  const { hideShow } = useStateContext();
+const Navbar = () => {
+  const { hideShow, toggleMode, theme } = useStateContext();
   const [search, setSearch] = useState("");
   const [searchDetails, setSearchDetails] = useState(null);
   const [searchValue] = useDebounce(search, 2000);
@@ -25,7 +25,7 @@ const Navbar = ({ isDark }) => {
 
   const Results = ({ data }) => {
     return (
-      <div className="absolute z-50 pt-3 pb-3 top-8 left-0 right-0 rounded-md bg-neutral-900 shadow-zinc-700 shadow-md">
+      <div className="absolute z-50 pt-3 pb-3 top-11 left-0 right-0 rounded-md bg-light_mode dark:bg-bg_search_dark shadow-bg_zinc shadow-md">
         {data?.map((d) => (
           <Link
             to={`/results?search_query=${searchValue
@@ -35,7 +35,7 @@ const Navbar = ({ isDark }) => {
             onClick={() => setShow(false)}
             key={d?.id?.videoId}
           >
-            <div className="px-3 p-2 text-white text-sm hover:bg-zinc-700 duration-200 ease-out">
+            <div className="px-3 p-2 text-sm dark:hover:bg-bg_zinc hover:bg-gray-100 duration-200 ease-out">
               <p>{d?.snippet?.title?.toLowerCase()}</p>
             </div>
           </Link>
@@ -74,7 +74,7 @@ const Navbar = ({ isDark }) => {
   }, [searchValue, search]);
 
   return (
-    <div className="flex items-center justify-between p-3 px-5 relative transition-all duration-300 ease-in-out">
+    <div className="flex items-center justify-between p-3 px-5 relative">
       <div className="flex justify-center gap-4 items-center">
         <button onClick={hideShow} className="hidden md:flex">
           <Bars3Icon className="w-6 h-6" />
@@ -86,7 +86,7 @@ const Navbar = ({ isDark }) => {
       </div>
 
       <div
-        className="gap-2 bg-[#212121] rounded-lg px-3 hidden md:flex w-full md:max-w-lg relative items-center"
+        className="gap-2 border-[1px] dark:border-0 dark:bg-[#212121] rounded-lg px-3 hidden md:flex w-full md:max-w-lg relative items-center"
         ref={divRef}
       >
         {searchValue && show && <Results data={searchResults} />}
@@ -121,8 +121,8 @@ const Navbar = ({ isDark }) => {
           />
         </div>
 
-        <button>
-          {isDark ? (
+        <button onClick={() => toggleMode()}>
+          {theme ? (
             <SunIcon className="md:w-6 w-5" />
           ) : (
             <MoonIcon className="md:w-6 w-5" />

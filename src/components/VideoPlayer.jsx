@@ -26,10 +26,8 @@ const VideoPlayer = ({ id, videoDetails }) => {
       />
 
       <div className="flex flex-col gap-4">
-        <h1 className="text-white text-xl font-semibold">
-          {title || localized.title}
-        </h1>
-        <div className="flex-col flex md:flex-row md:justify-between md:items-center gap-2 md:gap-0 md:border-none border-b-[1px] pb-5 border-opacity-50 border-gray-200">
+        <h1 className="text-xl font-semibold">{title || localized.title}</h1>
+        <div className="flex-col flex md:flex-row md:justify-between md:items-center gap-2 md:gap-0 md:border-none border-b-[1px] pb-5 border-opacity-50 dark:border-gray-200">
           <Link to={`/channel/${channelId}`}>
             <h4 className="font-medium text-slate-200"> {channelTitle} </h4>
           </Link>

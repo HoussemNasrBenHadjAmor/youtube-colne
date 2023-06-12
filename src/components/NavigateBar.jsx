@@ -25,7 +25,7 @@ const NavigateBar = ({ id }) => {
       <Link to={to}>
         <p
           className={`uppercase px-3 pb-2 font-semibold text-xs sm:text-base ${
-            pathname === to && "border-b-2 text-white"
+            pathname === to && "border-b-2"
           }`}
         >
           {name}
@@ -35,7 +35,7 @@ const NavigateBar = ({ id }) => {
   );
 
   return (
-    <div className="flex gap-5 items-center border-b-[1px] border-b-zinc-700">
+    <div className="flex gap-5 items-center border-b-[1px] dark:border-b-zinc-700 border-b-gray-100">
       {Navigate.map(({ name, to }) => (
         <SingleNavigate name={name} to={to} key={name} />
       ))}

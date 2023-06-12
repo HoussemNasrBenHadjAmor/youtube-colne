@@ -19,14 +19,14 @@ const Result = ({ item }) => {
 
         <div className="w-full lg:max-w-lg md:max-w-sm flex flex-col gap-1 lg:gap-3">
           <div>
-            <p className="text-white font-bold truncate">{video?.title}</p>
-            <p className="text-xs text-gray-400 mt-1">
+            <p className="font-bold truncate">{video?.title}</p>
+            <p className="text-xs dark:text-gray-400 mt-1">
               {timeAgo.format(new Date(video?.snippet?.publishTime))}
             </p>
           </div>
 
           <Link to={`/channel/${video?.snippet?.channelId}`}>
-            <p className="md:text-gray-400 text-xs md:hover:text-white duration-300 ease-in-out text-white">
+            <p className="dark:md:text-gray-400 text-xs dark:md:hover:text-white duration-300 ease-in-out">
               {video?.snippet?.channelTitle}
             </p>
           </Link>
@@ -39,7 +39,7 @@ const Result = ({ item }) => {
 
   const ChannelCard = ({ channel }) => (
     <Link to={`/channel/${channel?.id?.channelId}`}>
-      <div className="md:flex md:flex-row flex-col flex items-center gap-3 border-y-[1px] border-white border-opacity-20 py-5">
+      <div className="md:flex md:flex-row flex-col flex items-center gap-3 border-y-[1px] border-opacity-20 py-5">
         <div className="w-full md:w-[40%] md:max-w-sm flex items-center justify-center">
           <img
             src={channel?.snippet?.thumbnails?.medium?.url}
@@ -48,7 +48,7 @@ const Result = ({ item }) => {
           />
         </div>
         <div className="w-full md:max-w-md md:w-[60%] flex flex-col gap-2 md:gap-0">
-          <p className="text-white font-semibold truncate">{channel?.title}</p>
+          <p className="font-semibold truncate">{channel?.title}</p>
 
           <p className="text-sm"> {channel?.snippet?.description} </p>
         </div>

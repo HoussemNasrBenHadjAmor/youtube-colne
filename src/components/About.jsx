@@ -5,7 +5,7 @@ const About = ({ description, join, views, location }) => {
   const Line = () => <div className="border-b-[1px] opacity-60" />;
 
   return (
-    <div className="flex flex-col md:flex-row text-white gap-5">
+    <div className="flex flex-col md:flex-row gap-5">
       <div className="flex flex-col gap-4 md:w-[70%]">
         <p>Description</p>
         <p>{description}</p>

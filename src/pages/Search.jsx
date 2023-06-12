@@ -11,7 +11,7 @@ const Search = () => {
   const [searchValue] = useDebounce(search, 2000);
 
   return (
-    <div className="absolute inset-0 w-full bg-[#181818] h-screen p-3 flex flex-col gap-3">
+    <div className="absolute inset-0 w-full bg-light_mode dark:bg-dark_mode h-screen p-3 flex flex-col gap-3 z-50">
       <div className="flex gap-2 place-items-start">
         <ChevronLeftIcon className="w-8" onClick={() => navigate("/")} />
 
@@ -19,7 +19,7 @@ const Search = () => {
           <input
             type="text"
             placeholder="Search..."
-            className="outline-none rounded-full w-full bg-neutral-800 p-1 px-2 text-sm text-white"
+            className="outline-none rounded-full w-full dark:bg-[#212121] focus:ring-0 border-[1px] dark:border-none p-1 px-2 text-sm"
             onChange={(e) => setSearch(e.target.value)}
             value={search}
           />
