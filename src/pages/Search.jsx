@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDebounce } from "use-debounce";
 
-import { searchResults } from "../utils/Variables";
+import { usefetchSearch } from "../lib/transtackReactQuery";
+import { ErrorPage } from "../components";
 import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 
 const Search = () => {
@@ -10,7 +11,11 @@ const Search = () => {
   const [search, setSearch] = useState("");
   const [searchValue] = useDebounce(search, 2000);
 
-  return (
+  const { data, status, isLoading } = usefetchSearch(searchValue);
+
+  return status === "error" ? (
+    <ErrorPage />
+  ) : (
     <div className="absolute inset-0 w-full bg-light_mode dark:bg-dark_mode h-screen p-3 flex flex-col gap-3 z-50">
       <div className="flex gap-2 place-items-start">
         <ChevronLeftIcon className="w-8" onClick={() => navigate("/")} />
@@ -26,7 +31,7 @@ const Search = () => {
 
           {searchValue && (
             <div className="flex flex-col gap-4 text-sm pt-5">
-              {searchResults?.map((item) => (
+              {data?.map((item) => (
                 <Link
                   to={`/results?search_query=${searchValue
                     ?.trim()
