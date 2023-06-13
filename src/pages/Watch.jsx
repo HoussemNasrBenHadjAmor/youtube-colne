@@ -1,17 +1,13 @@
-import { useState, useEffect } from "react";
-
 import { useLocation } from "react-router-dom";
 
-import { VideoPlayer, Suggestions, Videos, WatchLoader } from "../components";
-
 import {
-  getRelatedVideo,
-  getVideoDetails,
-  getChannelPlayListItems,
-} from "../lib/ApiFetch";
+  VideoPlayer,
+  Suggestions,
+  WatchLoader,
+  ErrorPage,
+} from "../components";
 
-import { suggestedVideo, videoDetails } from "../utils/Variables";
-import { isNumber } from "../utils/functions";
+import { useRelatedVideo, useVideoDetails } from "../lib/transtackReactQuery";
 
 const Watch = () => {
   const { search } = useLocation();
@@ -19,24 +15,25 @@ const Watch = () => {
   //*need to fix the id
   const id = search.slice(3);
 
-  const [relatedVideos, setRelatedVideos] = useState([]);
+  const {
+    data: videoDetails,
+    status: statusVD,
+    isLoading: isLoadingVD,
+  } = useVideoDetails(id);
 
-  const [videoDetail, setVideoDetail] = useState(null);
+  const {
+    data: suggestedVideos,
+    status: statusSV,
+    isLoading: isLoadingSV,
+  } = useRelatedVideo(id);
 
-  const suggestedVideos = new Array(15).fill(suggestedVideo);
-
-  const isLoading = false;
-
-  useEffect(() => {
-    // getChannelPlayListItems();
-    // getRelatedVideo(id).then(({ items }) => setRelatedVideos(items));
-    // getVideoDetails(id).then(({ items }) => setVideoDetail(items));
-  }, [id, search]);
-
-  // console.log("videoDetails from the component", videoDetail);
+  const isLoading = isLoadingSV && isLoadingVD;
+  const isError = statusVD === "error" || statusSV === "error";
 
   return isLoading ? (
     <WatchLoader />
+  ) : isError ? (
+    <ErrorPage />
   ) : (
     <div className="flex flex-col md:flex-row p-5 gap-7">
       <div className="lg:w-[65%] w-full">

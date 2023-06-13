@@ -5,17 +5,13 @@ import {
   useVideoDetails,
   useRelatedVideo,
 } from "../lib/transtackReactQuery";
-import {
-  suggestedVideo,
-  videoDetails,
-  playListVideos,
-  PlayListItemVideos,
-} from "../utils/Variables";
+
 import {
   VideoPlayer,
   Suggestions,
   PlayListItems,
   WatchLoader,
+  ErrorPage,
 } from "../components";
 import { isNumber, filterId } from "../utils/functions";
 
@@ -30,60 +26,59 @@ const WatchList = () => {
     ? filterId(id.slice(0, id.indexOf("index")))
     : id;
 
-  const isLoading = false;
+  const {
+    data: playListItemsData,
+    status: playListItemsStatus,
+    isLoading: playListItemsLoading,
+  } = useChannelPlayListItems(idList);
 
-  // const { data: playListItemsData, error: playListItemsError } =
-  //   useChannelPlayListItems(idList);
+  const videoIndex =
+    playListItemsData && playListItemsData?.length < index ? 0 : index;
 
-  // const videoIndex =
-  //   playListItemsData && playListItemsData?.length < index ? 0 : index;
+  const video = playListItemsData && playListItemsData[videoIndex];
 
-  // const video = playListItemsData && playListItemsData[videoIndex];
+  const {
+    data: videoDetailsData,
+    status: videoDetailsStatus,
+    isLoading: videoDetailsLoading,
+  } = useVideoDetails(video?.contentDetails?.videoId);
 
-  // const { data: videoDetailsData, error: videoDetailsError } = useVideoDetails(
-  //   video?.contentDetails?.videoId
-  // );
+  const {
+    data: relatedVideoData,
+    status: relatedVideoStatus,
+    isLoading: relatedVideoLoading,
+  } = useRelatedVideo(video?.contentDetails?.videoId);
 
-  // const { data: relatedVideoData, error: relatedVideoError } = useRelatedVideo(
-  //   video?.contentDetails?.videoId
-  // );
+  const isError =
+    playListItemsStatus === "error" ||
+    videoDetailsStatus === "error" ||
+    relatedVideoStatus === "error";
 
-  const suggestedVideos = new Array(15).fill(suggestedVideo);
-  const temporaryId = "9DDX3US3kss";
+  const isLoading =
+    relatedVideoLoading && videoDetailsLoading && playListItemsLoading;
 
-  return (
-    // playListItemsData &&
-    // videoDetailsData && (
-
-    isLoading ? (
-      <WatchLoader />
-    ) : (
-      <div className="flex flex-col lg:flex-row p-5 gap-7">
-        <div className="lg:w-[65%] w-full">
-          <VideoPlayer
-            id={temporaryId}
-            videoDetails={videoDetails}
-            // id={videoDetailsData && videoDetailsData[0]?.id}
-            // videoDetails={videoDetailsData && videoDetailsData[0]}
-          />
-        </div>
-        <div className="lg:w-[35%] w-full flex flex-col gap-5">
-          <div>
-            <PlayListItems
-              videos={PlayListItemVideos}
-              // videos={playListItemsData}
-            />
-          </div>
-
-          <Suggestions
-            // videos={relatedVideoData && relatedVideoData}
-            videos={suggestedVideos}
-          />
-        </div>
+  return isLoading ? (
+    <WatchLoader />
+  ) : isError ? (
+    <ErrorPage />
+  ) : (
+    <div className="flex flex-col lg:flex-row p-5 gap-7">
+      <div className="lg:w-[65%] w-full">
+        <VideoPlayer
+          id={videoDetailsData && videoDetailsData[0]?.id}
+          videoDetails={videoDetailsData && videoDetailsData[0]}
+        />
       </div>
-    )
-    // )
+      <div className="lg:w-[35%] w-full flex flex-col gap-5">
+        <div>
+          <PlayListItems videos={playListItemsData} />
+        </div>
+
+        <Suggestions videos={relatedVideoData && relatedVideoData} />
+      </div>
+    </div>
   );
+  // )
 };
 
 export default WatchList;

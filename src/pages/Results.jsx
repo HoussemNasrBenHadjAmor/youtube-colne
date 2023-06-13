@@ -1,21 +1,23 @@
-import { useParams, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
-import { fetchSearch } from "../lib/ApiFetch";
-import { Videos, Result } from "../components";
-import { channelCard, videoCard } from "../utils/Variables";
+import { usefetchSearch } from "../lib/transtackReactQuery";
+import { Result, ResultsLoader, ErrorPage } from "../components";
 
 const Results = () => {
-  let channelCardArray = [channelCard];
-  let videoCardArray = new Array(49).fill(videoCard);
+  const { search } = useLocation();
 
-  let newArray = channelCardArray.concat(videoCardArray);
+  const indexSplit = search.includes("search_query=") && search.split("?");
+  const searchString = indexSplit && indexSplit[1]?.slice(13);
 
-  useState(() => {}, []);
+  const { data, status, isLoading } = usefetchSearch(searchString);
 
-  return (
+  return isLoading ? (
+    <ResultsLoader number={15} />
+  ) : status === "error" ? (
+    <ErrorPage />
+  ) : (
     <div className="p-5 flex gap-5 flex-col max-w-5xl mx-auto">
-      {newArray?.map((item) => (
+      {data?.map((item) => (
         <Result item={item} key={item?.id} />
       ))}
     </div>

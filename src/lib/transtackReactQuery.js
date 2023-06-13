@@ -71,6 +71,7 @@ export const useChannelDetails = (id) => {
       } = await axios.get(
         `${url}channels?part=snippet,contentDetails,statistics,brandingSettings&id=${id}&maxResults=1&key=${apiKey}`
       );
+
       return items;
     },
   });
@@ -78,7 +79,7 @@ export const useChannelDetails = (id) => {
 
 export const useChannelPlaylist = (id) => {
   return useQuery({
-    queryKey: ["channelDetails", id],
+    queryKey: ["channelPlaylist", id],
     queryFn: async () => {
       const {
         data: { items },
@@ -92,7 +93,7 @@ export const useChannelPlaylist = (id) => {
 
 export const useChannelPlayListItems = (id) => {
   return useQuery({
-    queryKey: ["channelDetails", id],
+    queryKey: ["channelPlayListItems", id],
     queryFn: async () => {
       const {
         data: { items },
@@ -106,7 +107,7 @@ export const useChannelPlayListItems = (id) => {
 
 export const useChannelVideos = (id) => {
   return useQuery({
-    queryKey: ["channelDetails", id],
+    queryKey: ["channelVideos", id],
     queryFn: async () => {
       const {
         data: { items },

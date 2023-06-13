@@ -22,3 +22,4 @@ export { default as Result } from "./Result";
 export { default as HomeLoader } from "./Loader/HomeLoader";
 export { default as ProfileHomeLoader } from "./Loader/ProfileHomeLoader";
 export { default as WatchLoader } from "./Loader/WatchLoader";
+export { default as ResultsLoader } from "./Loader/ResultsLoader";

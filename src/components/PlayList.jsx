@@ -16,11 +16,11 @@ const PlayList = ({ playList }) => {
           <img
             src={snippet?.thumbnails?.medium?.url}
             alt="playList-banner"
-            className="object-cover rounded-md w-full"
+            className="object-cover rounded-md"
           />
 
           <div className="absolute inset-0 left-52 sm:left-48 md:left-36 flex flex-col justify-center items-center z-50 bg-opacity-[.85] text-white bg-black rounded-r-md">
-            <p>{contentDetails?.itemsCount}</p>
+            <p>{contentDetails?.itemCount}</p>
             <Bars2Icon className="w-6 h-6" />
           </div>
         </div>
