@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
-
 import { usefetchSearch } from "../lib/transtackReactQuery";
+
 import { Result, ResultsLoader, ErrorPage } from "../components";
 
 const Results = () => {

@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import { useRelatedVideo, useVideoDetails } from "../lib/transtackReactQuery";
 
 import {
   VideoPlayer,
@@ -6,8 +7,6 @@ import {
   WatchLoader,
   ErrorPage,
 } from "../components";
-
-import { useRelatedVideo, useVideoDetails } from "../lib/transtackReactQuery";
 
 const Watch = () => {
   const { search } = useLocation();

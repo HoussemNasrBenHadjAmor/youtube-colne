@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams, Routes, Route } from "react-router-dom";
+import {
+  useChannelDetails,
+  useChannelVideos,
+} from "../lib/transtackReactQuery";
 
 import {
   Banner,
@@ -10,11 +14,6 @@ import {
   ErrorPage,
   ProfileHomeLoader,
 } from "../components";
-
-import {
-  useChannelDetails,
-  useChannelVideos,
-} from "../lib/transtackReactQuery";
 
 const Profile = () => {
   const idChannel = useParams()?.id;
