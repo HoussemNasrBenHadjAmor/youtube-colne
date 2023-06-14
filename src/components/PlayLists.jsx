@@ -13,10 +13,12 @@ const PlayLists = () => {
   ) : (
     <div className="flex flex-col gap-4">
       <p>Created playlists</p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 gap-y-4">
-        {data.map((list) => (
-          <PlayList playList={list} key={list?.id} />
-        ))}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 gap-y-4">
+        {data
+          .filter((list) => list?.contentDetails?.itemCount)
+          .map((list) => (
+            <PlayList playList={list} key={list?.id} />
+          ))}
       </div>
     </div>
   );

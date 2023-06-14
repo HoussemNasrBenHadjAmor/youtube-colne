@@ -36,7 +36,7 @@ const Watch = () => {
   ) : (
     <div className="flex flex-col md:flex-row p-5 gap-7">
       <div className="lg:w-[65%] w-full">
-        <VideoPlayer id={id} videoDetails={videoDetails} />
+        <VideoPlayer id={id} videoDetails={videoDetails[0]} />
       </div>
       <div className="lg:w-[35%] w-full">
         <Suggestions videos={suggestedVideos} />

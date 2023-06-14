@@ -1,19 +1,12 @@
 import { Link } from "react-router-dom";
 import ReactPlayer from "react-player";
+
 import { HandThumbUpIcon, EyeIcon } from "@heroicons/react/24/solid";
 
 const VideoPlayer = ({ id, videoDetails }) => {
   const { snippet, statistics } = videoDetails;
 
-  const {
-    channelTitle,
-    description,
-    localized,
-    publishedAt,
-    title,
-    channelId,
-  } = snippet;
-  const urlTitle = channelTitle?.replace(/\s/g, "").toLowerCase();
+  const { channelTitle, localized, title, channelId } = snippet;
 
   return (
     <div className="flex flex-col gap-5">

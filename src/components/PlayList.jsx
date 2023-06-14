@@ -16,16 +16,16 @@ const PlayList = ({ playList }) => {
           <img
             src={snippet?.thumbnails?.medium?.url}
             alt="playList-banner"
-            className="object-cover rounded-md"
+            className="object-cover rounded-md w-full"
           />
 
-          <div className="absolute inset-0 left-52 sm:left-48 md:left-36 flex flex-col justify-center items-center z-50 bg-opacity-[.85] text-white bg-black rounded-r-md">
-            <p>{contentDetails?.itemCount}</p>
-            <Bars2Icon className="w-6 h-6" />
+          <div className="absolute inset-0 top-32 sm:top-48 md:top-20 flex px-2 justify-between items-center z-50 bg-opacity-[.55] text-white bg-black">
+            <Bars2Icon className="w-4 h-4" />
+            <p className="text-xs">{contentDetails?.itemCount} videos</p>
           </div>
         </div>
 
-        <p className="text-sm">{truncateText}</p>
+        <p className="text-sm font-semibold">{truncateText}</p>
         <p className="text-sm">View full playlist</p>
       </div>
     </Link>
