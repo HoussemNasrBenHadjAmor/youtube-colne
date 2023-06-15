@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import {
@@ -17,6 +18,7 @@ import { isNumber, filterId } from "../utils/functions";
 
 const WatchList = () => {
   const { id } = useParams();
+  const [videoId, setVideoId] = useState("");
 
   const indexSplit = id.includes("index=") && id.split("&");
   const indexLength = indexSplit && indexSplit[1]?.slice(6);
@@ -41,13 +43,13 @@ const WatchList = () => {
     data: videoDetailsData,
     status: videoDetailsStatus,
     isLoading: videoDetailsLoading,
-  } = useVideoDetails(video?.contentDetails?.videoId);
+  } = useVideoDetails(videoId);
 
   const {
     data: relatedVideoData,
     status: relatedVideoStatus,
     isLoading: relatedVideoLoading,
-  } = useRelatedVideo(video?.contentDetails?.videoId);
+  } = useRelatedVideo(videoId);
 
   const isError =
     playListItemsStatus === "error" ||
@@ -57,7 +59,17 @@ const WatchList = () => {
   const isLoading =
     relatedVideoLoading && videoDetailsLoading && playListItemsLoading;
 
-  return isLoading ? (
+  useEffect(() => {
+    video && setVideoId(video?.contentDetails?.videoId);
+  }, [video]);
+
+  console.log("video", videoId);
+  console.log("playListItemsData", playListItemsData);
+  console.log("video", video);
+  console.log("videoDetailsData", videoDetailsData);
+  console.log("relatedVideoData", relatedVideoData);
+
+  return isLoading && !video ? (
     <WatchLoader />
   ) : isError ? (
     <ErrorPage />

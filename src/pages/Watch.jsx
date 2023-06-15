@@ -34,11 +34,11 @@ const Watch = () => {
   ) : isError ? (
     <ErrorPage />
   ) : (
-    <div className="flex flex-col md:flex-row p-5 gap-7">
-      <div className="lg:w-[65%] w-full">
+    <div className="flex flex-col md:flex-row pt-5 gap-7">
+      <div className="lg:w-[65%] w-full md:px-5">
         <VideoPlayer id={id} videoDetails={videoDetails[0]} />
       </div>
-      <div className="lg:w-[35%] w-full">
+      <div className="lg:w-[35%] w-full px-5">
         <Suggestions videos={suggestedVideos} />
       </div>
     </div>

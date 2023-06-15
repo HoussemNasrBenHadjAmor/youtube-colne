@@ -43,6 +43,7 @@ export const useVideoDetails = (id) => {
       } = await axios.get(
         `${url}videos?part=snippet,statistics&id=${id}&maxResults=15&key=${apiKey}`
       );
+      console.log("items", items);
       return items;
     },
   });
