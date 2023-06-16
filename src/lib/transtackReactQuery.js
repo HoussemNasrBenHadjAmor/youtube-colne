@@ -27,7 +27,7 @@ export const useRelatedVideo = (id) => {
       const {
         data: { items },
       } = await axios.get(
-        `${url}search?part=snippet&relatedToVideoId=${id}&key=${apiKey}&type=video&maxResults=15`
+        `${url}search?part=snippet&relatedToVideoId=${id}&key=${apiKey}&type=video&maxResults=5`
       );
       return items;
     },
@@ -43,7 +43,6 @@ export const useVideoDetails = (id) => {
       } = await axios.get(
         `${url}videos?part=snippet,statistics&id=${id}&maxResults=15&key=${apiKey}`
       );
-      console.log("items", items);
       return items;
     },
   });

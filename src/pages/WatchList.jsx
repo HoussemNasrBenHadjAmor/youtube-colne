@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import {
@@ -18,7 +17,6 @@ import { isNumber, filterId } from "../utils/functions";
 
 const WatchList = () => {
   const { id } = useParams();
-  const [videoId, setVideoId] = useState("");
 
   const indexSplit = id.includes("index=") && id.split("&");
   const indexLength = indexSplit && indexSplit[1]?.slice(6);
@@ -43,13 +41,13 @@ const WatchList = () => {
     data: videoDetailsData,
     status: videoDetailsStatus,
     isLoading: videoDetailsLoading,
-  } = useVideoDetails(videoId);
+  } = useVideoDetails(video?.contentDetails?.videoId);
 
   const {
     data: relatedVideoData,
     status: relatedVideoStatus,
     isLoading: relatedVideoLoading,
-  } = useRelatedVideo(videoId);
+  } = useRelatedVideo(video?.contentDetails?.videoId);
 
   const isError =
     playListItemsStatus === "error" ||
@@ -59,36 +57,29 @@ const WatchList = () => {
   const isLoading =
     relatedVideoLoading && videoDetailsLoading && playListItemsLoading;
 
-  useEffect(() => {
-    video && setVideoId(video?.contentDetails?.videoId);
-  }, [video]);
-
-  console.log("video", videoId);
-  console.log("playListItemsData", playListItemsData);
-  console.log("video", video);
-  console.log("videoDetailsData", videoDetailsData);
-  console.log("relatedVideoData", relatedVideoData);
-
-  return isLoading && !video ? (
+  return isLoading ? (
     <WatchLoader />
   ) : isError ? (
     <ErrorPage />
   ) : (
-    <div className="flex flex-col lg:flex-row p-5 gap-7">
-      <div className="lg:w-[65%] w-full">
-        <VideoPlayer
-          id={videoDetailsData && videoDetailsData[0]?.id}
-          videoDetails={videoDetailsData && videoDetailsData[0]}
-        />
-      </div>
-      <div className="lg:w-[35%] w-full flex flex-col gap-5">
-        <div>
-          <PlayListItems videos={playListItemsData} />
+    videoDetailsData &&
+    relatedVideoData && (
+      <div className="flex flex-col lg:flex-row p-5 gap-7">
+        <div className="lg:w-[65%] w-full">
+          <VideoPlayer
+            id={videoDetailsData && videoDetailsData[0]?.id}
+            videoDetails={videoDetailsData && videoDetailsData[0]}
+          />
         </div>
+        <div className="lg:w-[35%] w-full flex flex-col gap-5">
+          <div>
+            <PlayListItems videos={playListItemsData} index={videoIndex} />
+          </div>
 
-        <Suggestions videos={relatedVideoData && relatedVideoData} />
+          <Suggestions videos={relatedVideoData && relatedVideoData} />
+        </div>
       </div>
-    </div>
+    )
   );
   // )
 };
