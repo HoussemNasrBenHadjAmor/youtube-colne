@@ -3,6 +3,29 @@ import axios from "axios";
 const url = import.meta.env.VITE_YOUTUBE_URL;
 const apiKey = import.meta.env.VITE_YOUTUBE_API;
 
+export const fetchMovies = async (page) => {
+  try {
+    // const { data } = await axios.get(
+    //   "https://moviesdatabase.p.rapidapi.com/titles/search/title/spiderman",
+    //   // {
+    //   //   params: {
+    //   //     exact: "false",
+    //   //     page: "1",
+    //   //     titleType: "movie",
+    //   //   },
+    //   // },
+
+    const { data } = await axios.get(
+      `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}&api_key=f8824d7407d43096199ef173fdc47d47`
+    );
+
+    console.log("data from fetch", data);
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
+
 export const fetchSearch = async (search, number) => {
   try {
     const { data } = await axios.get(
