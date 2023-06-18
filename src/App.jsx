@@ -4,7 +4,7 @@ import { useStateContext } from "./context/StateContextProvider";
 import { Routes, Route } from "react-router-dom";
 
 const App = () => {
-  const { open } = useStateContext();
+  const { open, countryCode } = useStateContext();
 
   return (
     <div className="transition-all duration-300 ease-in-out">
@@ -22,8 +22,11 @@ const App = () => {
             <SideBarMobile />
           </div>
           <Routes>
-            <Route path="/" element={<Body />} />
-            <Route path="/category/:id" element={<Body />} />
+            <Route path="/" element={<Body country={countryCode} />} />
+            <Route
+              path="/category/:id"
+              element={<Body country={countryCode} />}
+            />
             <Route path="/watch" element={<Watch />} />
             <Route path="/watch/list/:id" element={<WatchList />} />
             <Route path="/channel/:id/*" element={<Profile />} />

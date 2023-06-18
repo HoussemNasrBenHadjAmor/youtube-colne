@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import axios from "axios";
 
 const StateContext = createContext();
 
@@ -8,6 +9,7 @@ export const StateContextProvider = ({ children }) => {
   );
 
   const [open, setOpen] = useState(true);
+  const [countryCode, setCountryCode] = useState(null);
 
   const toggleMode = () => {
     if (theme) {
@@ -19,6 +21,13 @@ export const StateContextProvider = ({ children }) => {
       localStorage.setItem("dark_mode", "true");
       setTheme(true);
     }
+  };
+
+  const getGeroInfo = async () => {
+    await axios
+      .get("https://api.country.is/")
+      .then(({ data }) => setCountryCode(data?.country?.toLowerCase()))
+      .catch(() => setCountryCode("ca"));
   };
 
   const hideShow = () => setOpen(!open);
@@ -33,6 +42,10 @@ export const StateContextProvider = ({ children }) => {
     }
   }, [theme]);
 
+  useEffect(() => {
+    getGeroInfo();
+  }, []);
+
   return (
     <StateContext.Provider
       value={{
@@ -41,6 +54,7 @@ export const StateContextProvider = ({ children }) => {
         hideShow,
         toggleMode,
         theme,
+        countryCode,
       }}
     >
       {children}

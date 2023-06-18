@@ -11,8 +11,8 @@ import {
 const Watch = () => {
   const { search } = useLocation();
 
-  //*need to fix the id
-  const id = search.slice(3);
+  const indexSplit = search.includes("v=") && search.split("?");
+  const id = indexSplit ? indexSplit[1]?.slice(2) : undefined;
 
   const {
     data: videoDetails,
@@ -27,7 +27,7 @@ const Watch = () => {
   } = useRelatedVideo(id);
 
   const isLoading = isLoadingSV && isLoadingVD;
-  const isError = statusVD === "error" || statusSV === "error";
+  const isError = statusVD === "error" || statusSV === "error" || !id;
 
   return isLoading ? (
     <WatchLoader />

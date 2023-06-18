@@ -4,7 +4,7 @@ import axios from "axios";
 const url = import.meta.env.VITE_YOUTUBE_URL;
 const apiKey = import.meta.env.VITE_YOUTUBE_API;
 
-export const usefetchSearch = (search, number) => {
+export const usefetchSearch = (search, number, date, region) => {
   return useQuery({
     queryKey: ["fetchSearch", search, number],
     queryFn: async () => {
@@ -13,7 +13,9 @@ export const usefetchSearch = (search, number) => {
       } = await axios.get(
         `${url}search?key=${apiKey}&part=snippet&q=${search}&maxResults=${
           number || 50
-        }&type=channel,video`
+        }&type=channel,video&order=${
+          date ? "date" : "relevance "
+        }&regionCode=${region}`
       );
       return items;
     },
@@ -27,7 +29,7 @@ export const useRelatedVideo = (id) => {
       const {
         data: { items },
       } = await axios.get(
-        `${url}search?part=snippet&relatedToVideoId=${id}&key=${apiKey}&type=video&maxResults=5`
+        `${url}search?part=snippet&relatedToVideoId=${id}&key=${apiKey}&type=video&maxResults=10`
       );
       return items;
     },
