@@ -23,14 +23,18 @@ export const StateContextProvider = ({ children }) => {
     }
   };
 
-  const getGeroInfo = async () => {
-    await axios
+  const getGeroInfo = () => {
+    axios
       .get("https://api.country.is/")
       .then(({ data }) => setCountryCode(data?.country?.toLowerCase()))
       .catch(() => setCountryCode("ca"));
   };
 
   const hideShow = () => setOpen(!open);
+
+  useEffect(() => {
+    getGeroInfo();
+  }, [theme]);
 
   useEffect(() => {
     if (theme) {
@@ -41,10 +45,6 @@ export const StateContextProvider = ({ children }) => {
       localStorage.setItem("dark_mode", "false");
     }
   }, [theme]);
-
-  useEffect(() => {
-    getGeroInfo();
-  }, []);
 
   return (
     <StateContext.Provider

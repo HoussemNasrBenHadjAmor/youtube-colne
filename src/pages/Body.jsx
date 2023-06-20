@@ -8,21 +8,16 @@ import InfiniteScroll from "react-infinite-scroller";
 import { Videos, HomeLoader, ErrorPage } from "../components";
 import { useStateContext } from "../context/StateContextProvider";
 
-const Body = ({ countryCode }) => {
+const Body = ({ country }) => {
   const { pathname } = useLocation();
   const query = pathname.slice(10).length ? pathname.slice(10) : "new";
   const [page, setPage] = useState(1);
+
   const [hasMore, setHasMore] = useState(false);
   // const [data, setData] = useState([]);
   // const [status, setStatus] = useState("");
 
-  const { data, status, isLoading } = usefetchSearch(
-    query,
-    20,
-    "date",
-    countryCode
-  );
-
+  const { data, status, isLoading } = usefetchSearch(query, 1, "date", country);
   // const Test = ({ data }) => {
   //   {
   //     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 items-center justify-center gap-5">
@@ -102,10 +97,7 @@ const Body = ({ countryCode }) => {
   ) : isError ? (
     <ErrorPage />
   ) : (
-    <div>
-      <Videos videos={data} />
-      <p>hi</p>
-    </div>
+    <Videos videos={data} />
   );
   // return isError ? (
   //   <ErrorPage />
