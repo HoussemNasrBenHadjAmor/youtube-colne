@@ -11,7 +11,7 @@ const theme = localStorage.getItem("dark_mode") === "true";
 
 export const categories = [
   { name: "New", Icon: HomeIcon, path: "/" },
-  { name: "React", Icon: CodeBracketIcon, path: "/category/react" },
+  { name: "React", Icon: CodeBracketIcon, path: "/category/reactjs" },
   { name: "Music", Icon: MusicalNoteIcon, path: "/category/music" },
   { name: "Film", Icon: FilmIcon, path: "/category/film" },
   { name: "Gaming", Icon: PuzzlePieceIcon, path: "/category/gaming" },

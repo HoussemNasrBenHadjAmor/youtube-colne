@@ -6,7 +6,6 @@ import { Routes, Route } from "react-router-dom";
 const App = () => {
   const { open, countryCode } = useStateContext();
 
-  console.log("countryCode", countryCode);
 
   return (
     <div className="transition-all duration-300 ease-in-out">

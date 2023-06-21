@@ -7,6 +7,7 @@ const apiKey = import.meta.env.VITE_YOUTUBE_API;
 export const usefetchSearch = (search, number, date, region) => {
   return useQuery({
     queryKey: ["fetchSearch", search, number, date, region],
+    retry: 2,
     queryFn: async () => {
       const {
         data: { items },
@@ -14,7 +15,7 @@ export const usefetchSearch = (search, number, date, region) => {
         `${url}search?key=${apiKey}&part=snippet&q=${search}&maxResults=${
           number || 50
         }&type=channel,video&order=${
-          date ? "date" : "relevance "
+          date ? "date" : "relevance"
         }&regionCode=${region}`
       );
       return items;

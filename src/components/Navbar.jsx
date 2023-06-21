@@ -67,9 +67,9 @@ const Navbar = () => {
   }, [divRef]);
 
   useEffect(() => {
-    // searchValue && getSearch();
+    searchValue && getSearch();
     if (searchValue === "") {
-      // setSearchDetails(null);
+      setSearchDetails(null);
     }
   }, [searchValue, search]);
 
@@ -89,7 +89,9 @@ const Navbar = () => {
         className="gap-2 border-[1px] dark:border-0 dark:bg-[#212121] rounded-lg px-3 hidden md:flex w-full md:max-w-lg relative items-center"
         ref={divRef}
       >
-        {searchValue && show && <Results data={searchResults} />}
+        {searchValue && searchDetails && show && (
+          <Results data={searchDetails} />
+        )}
 
         <input
           type="text"

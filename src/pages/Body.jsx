@@ -1,23 +1,50 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { usefetchSearch } from "../lib/transtackReactQuery";
-import { fetchSearch, fetchMovies } from "../lib/ApiFetch";
 
-import InfiniteScroll from "react-infinite-scroller";
 // import InfiniteScroll from "react-infinite-scroll-component";
 import { Videos, HomeLoader, ErrorPage } from "../components";
-import { useStateContext } from "../context/StateContextProvider";
 
 const Body = ({ country }) => {
   const { pathname } = useLocation();
   const query = pathname.slice(10).length ? pathname.slice(10) : "new";
+  const isNew = pathname === "/";
+
   const [page, setPage] = useState(1);
 
   const [hasMore, setHasMore] = useState(false);
+
+  // const [fetchData, setFetchData] = useState([]);
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [error, setError] = useState("");
+
+  // const fetchSearchFun = async () => {
+  //   try {
+  //     setIsLoading(true);
+  //     country &&
+  //       (await fetchSearch(query, 10, "date", country).then(({ items }) => {
+  //         setFetchData(items);
+  //         setIsLoading(false);
+  //       }));
+  //   } catch (error) {
+  //     setIsLoading(false);
+  //     setError("error");
+  //     return error;
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   fetchSearchFun();
+  // }, [country]);
   // const [data, setData] = useState([]);
   // const [status, setStatus] = useState("");
 
-  const { data, status, isLoading } = usefetchSearch(query, 1, "date", country);
+  const { data, status, isLoading } = usefetchSearch(
+    query,
+    20,
+    isNew && "date",
+    country
+  );
   // const Test = ({ data }) => {
   //   {
   //     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 items-center justify-center gap-5">
@@ -97,7 +124,10 @@ const Body = ({ country }) => {
   ) : isError ? (
     <ErrorPage />
   ) : (
-    <Videos videos={data} />
+    <Videos
+      // videos={fetchData}
+      videos={data}
+    />
   );
   // return isError ? (
   //   <ErrorPage />
