@@ -23,6 +23,23 @@ export const usefetchSearch = (search, number, date, region) => {
   });
 };
 
+export const usefetchSearchV2 = (search, number, date) => {
+  return useQuery({
+    queryKey: ["fetchSearch", search, number, date],
+    retry: 2,
+    queryFn: async () => {
+      const {
+        data: { items },
+      } = await axios.get(
+        `${url}search?key=${apiKey}&part=snippet&q=${search}&maxResults=${
+          number || 50
+        }&type=channel,video&order=${date ? "date" : "relevance"}`
+      );
+      return items;
+    },
+  });
+};
+
 export const useRelatedVideo = (id) => {
   return useQuery({
     queryKey: ["relatedVideo", id],

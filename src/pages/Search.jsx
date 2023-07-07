@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDebounce } from "use-debounce";
 
-import { usefetchSearch } from "../lib/transtackReactQuery";
+import { usefetchSearchV2 } from "../lib/transtackReactQuery";
 import { ErrorPage } from "../components";
 import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 
@@ -11,7 +11,7 @@ const Search = () => {
   const [search, setSearch] = useState("");
   const [searchValue] = useDebounce(search, 2000);
 
-  const { data, status, isLoading } = usefetchSearch(searchValue);
+  const { data, status } = usefetchSearchV2(searchValue, 8);
 
   return status === "error" ? (
     <ErrorPage />
@@ -29,7 +29,7 @@ const Search = () => {
             value={search}
           />
 
-          {searchValue && (
+          {search && searchValue && (
             <div className="flex flex-col gap-4 text-sm pt-5">
               {data?.map((item) => (
                 <Link
